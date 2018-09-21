@@ -1,0 +1,63 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "nichol_position", "value": "4", "type": "INT"}, {
+    "name": "unit_name", "value": "Nichol", "type": "STRING"}
+  ],
+  "includes": [],
+  "states": {
+
+    "_nichol-buffs": {
+      "name": "Nichol - Buffs",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${nichol_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "5"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_${nichol_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_${nichol_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]
+      }]
+    },
+
+    "_nichol-energy": {
+      "name": "Nichol - Energy",
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${nichol_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "6"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_4"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_0"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]
+      }]
+    }
+  }
+}

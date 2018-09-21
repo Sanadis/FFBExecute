@@ -1,0 +1,30 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "freyvia_position", "value": "2", "type": "INT"}, {
+    "name": "unit_name", "value": "Freyvia", "type": "STRING"}
+  ],
+  "includes": [],
+  "states": {
+
+    "zskill_freyvia-ffb": {
+      "name": "Freyvia - Frost Flower Blitz",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Freyvia - Frost Flower Blitz (POS: ${freyvia_position}"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${freyvia_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
+    }
+  }
+}
