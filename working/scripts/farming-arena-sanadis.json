@@ -1,0 +1,146 @@
+//@formatter:off
+{
+"vars": [],
+"includes": [],
+"states": {
+  "arena-battle-setup": {
+    "name": "Arena - Battle - Setup (Override)",
+    "description":"Setup each unit and start the fight",
+    "includes": [
+      "_arena-battle-fight",
+      "_common-no_op",
+      "ayaka",
+      "veritas",
+      "orlandeau",
+      "barbariccia",
+      "freyvia"
+    ],
+    "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "game-battle-repeat",
+          "and": [{
+            "is": "SCREEN", "value": "battle-unit-3_ready"}, {
+            "is": "SCREEN", "value": "battle-unit-3_mp"}
+          ],
+          "andOr": [{
+            "is": "SCREEN", "value": "battle-unit-0_stop"}, {
+            "is": "SCREEN", "value": "battle-unit-1_stop"}, {
+            "is": "SCREEN", "value": "battle-unit-2_stop"}, {
+            "is": "SCREEN", "value": "battle-unit-4_stop"}
+          ]
+        },
+        "actions": [{
+          "type": "MSG", "value": "Stop has been detected, trying to resolve"}, {
+          "type": "SET", "value": "1", "var": "setup"}, {
+          "type": "PUSH", "value": "zskill_ayaka-stopdetach"}, {
+          "type": "TAP", "value": "battle-unit_3"}, {
+          "type": "WAIT", "value": "3000"}, {
+          "type": "TAP",  "value": "battle-reload"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "is": "SCREEN", "value": "game-battle-repeat",
+          "and": [{
+            "is": "SCREEN", "value": "battle-unit-3_mp"}, {
+            "is": "SCREEN", "value": "battle-unit-3_ready"}, {
+            "not": "SCREEN", "value": "battle-unit-3_magic"}
+          ]
+        },
+        "actions": [{
+          "type": "SET", "value": "0", "var": "setup"}, {
+          "type": "PUSH", "value": "zskill_ayaka-curaja"}, {
+          "type": "TAP", "value": "battle-unit_3"}, {
+          "type": "WAIT", "value": "3000"}, {
+          "type": "TAP",  "value": "battle-reload"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+      "condition": {
+        "is": "SCREEN", "value": "game-battle-repeat",
+        "and": [{
+          "is": "SCREEN", "value": "battle-unit-0_mp"}, {
+          "is": "SCREEN", "value": "battle-unit-0_ready"}, {
+          "not": "SCREEN", "value": "battle-unit-0_ability"}
+        ]
+      },
+      "actions": [{
+        "type": "PUSH", "value": "zskill_veritas-punishment"}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      "condition": {
+        "is": "SCREEN", "value": "game-battle-repeat",
+        "and": [{
+          "is": "SCREEN", "value": "battle-unit-1_mp"}, {
+          "is": "SCREEN", "value": "battle-unit-1_ready"}, {
+          "not": "SCREEN", "value": "battle-unit-1_ability"}
+        ]
+      },
+      "actions": [{
+        "type": "PUSH", "value": "zskill_orlandeau-dr"}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      "condition": {
+        "is": "SCREEN", "value": "game-battle-repeat",
+        "and": [{
+          "is": "SCREEN", "value": "battle-unit-4_mp"}, {
+          "is": "SCREEN", "value": "battle-unit-4_ready"}, {
+          "not": "SCREEN", "value": "battle-unit-4_ability"}
+        ]
+      },
+      "actions": [{
+        "type": "PUSH", "value": "zskill_barbariccia-sunder"}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      "condition": {
+        "is": "SCREEN", "value": "game-battle-repeat",
+        "and": [{
+          "is": "SCREEN", "value": "battle-unit-2_mp"}, {
+          "is": "SCREEN", "value": "battle-unit-2_ready"}, {
+          "not": "SCREEN", "value": "battle-unit-2_ability"}
+        ]
+      },
+      "actions": [{
+        "type": "PUSH", "value": "zskill_freyvia-ffb"}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      "condition": {
+        "is": "SCREEN", "value": "game-battle-repeat"
+      },
+      "actions": [{
+        "type": "MSG", "value": "Attacking"}, {
+        "type": "BATCH", "value": "start"}, {
+        "type": "TAP", "value": "battle-unit_5"}, {
+        "type": "TAP", "value": "battle-unit_4"}, {
+        "type": "TAP", "value": "battle-unit_0"}, {
+        "type": "TAP", "value": "battle-unit_1"}, {
+        "type": "TAP", "value": "battle-unit_2"}, {
+        "type": "BATCH", "value": "end"}, {
+        "type": "WAIT", "value": "1000"}, {
+        "type": "REPEAT"}
+      ]
+    }]
+  },
+
+  "arena-battle-fight": {
+    "name": "Arena - Battle - Fight (Override)",
+    "description":"Continue fighting if every unit is fine, otherwise return to setup step.",
+    "includes": [
+      "_arena-battle-fight",
+      "_common-no_op"
+    ]
+    }
+  }
+}

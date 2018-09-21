@@ -1,0 +1,313 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "turn_number", "value": "1", "type": "INT"}
+  ],
+  "includes": [
+  ],
+
+  "states": {
+    "_common-power_down": {
+      "name": "Common - Power Down",
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "false"
+        }
+      }]
+    },
+
+    "_raid-find_depart_team": {
+      "name": "Raid - Find Depart Team",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu-depart",
+          "and": [{
+            "not": "SCREEN", "value": "menu-depart-team_4"
+          }]
+        },
+        "actions": [{
+          "type": "SWIPE_RIGHT", "value": "menu-depart-units"
+        }, {
+          "type": "WAIT", "value": "1500"}, {
+          "type": "REPEAT", "value": ""
+        }]
+      }, {
+        "condition": {
+          "var": "turn_number", "is": "GREATER",  "value": "1"
+        },
+        "actions": [{
+          "type": "SET", "value": "1", "var": "turn_number"}
+        ]
+      }
+      ]
+    },
+
+    "raid-battle": {
+      "name": "Raid - Battle (Override)",
+      "includes": [
+        "_raid_battle-auto",
+        "_raid-battle-message",
+        "_raid-to_results",
+        "_common-no_op",
+        "veritas",
+        "ayaka",
+        "orlandeau",
+        "barbariccia",
+        "freyvia"
+      ]
+    },
+
+    "_raid_battle-auto": {
+      "name": "Raid Battle - Auto (Override)",
+      "statements": [{
+
+        // --------------------------------------------------------------- //
+        // --------------------------- TURN 1 ---------------------------- //
+        // --------------------------------------------------------------- //
+        "condition": {
+          "var": "turn_number", "is": "EQUAL",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-0_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-0_magic"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_veritas-impact"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "EQUAL",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-3_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-3_ability"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_ayaka-embolden"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "EQUAL",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-1_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-1_ability"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_orlandeau-dr"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "EQUAL",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-4_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-4_magic"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_barbariccia-tornado"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "EQUAL",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-2_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-2_ability"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_freyvia-ffb"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "EQUAL",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "not": "SCREEN","value": "battle-unit-0_ready", "or": [{"is": "SCREEN", "value": "battle-unit-0_magic"}]}, {
+              "not": "SCREEN","value": "battle-unit-1_ready", "or": [{"is": "SCREEN", "value": "battle-unit-1_ability"}]}, {
+              "not": "SCREEN","value": "battle-unit-2_ready", "or": [{"is": "SCREEN", "value": "battle-unit-2_ability"}]}, {
+              "not": "SCREEN","value": "battle-unit-3_ready", "or": [{"is": "SCREEN", "value": "battle-unit-3_ability"}]}, {
+              "not": "SCREEN","value": "battle-unit-4_ready", "or": [{"is": "SCREEN", "value": "battle-unit-4_magic"}]}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "MSG", "value": "Attack ${turn_number}"}, {
+          "type": "BATCH", "value": "start"}, {
+          "type": "TAP", "value": "battle-unit_3"}, {
+          "type": "TAP", "value": "battle-unit_0"}, {
+          "type": "BATCH", "value": "end"}, {
+          "type": "WAIT", "value": "250"}, {
+          "type": "BATCH", "value": "start"}, {
+          "type": "TAP", "value": "battle-unit_4"}, {
+          "type": "TAP", "value": "battle-unit_5"}, {
+          "type": "TAP", "value": "battle-unit_1"}, {
+          "type": "TAP", "value": "battle-unit_2"}, {
+          "type": "BATCH", "value": "end"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "ADD", "value": "1", "var": "turn_number"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        // --------------------------------------------------------------- //
+        // --------------------------- TURN 2+ --------------------------- //
+        // --------------------------------------------------------------- //
+        "condition": {
+          "var": "turn_number", "is": "GREATER",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-3_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-3_ability"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_ayaka-stopdetach"}, {
+          "type": "TAP", "value": "battle-unit_3"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "GREATER",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-0_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-0_ability"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_veritas-punishment"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "GREATER",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-1_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-1_ability"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_orlandeau-dr"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "GREATER",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-4_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-4_magic"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_barbariccia-tornado"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "GREATER",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "is": "SCREEN", "value": "battle-unit-2_ready"}, {
+              "not": "SCREEN", "value": "battle-unit-2_ability"}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "PUSH", "value": "zskill_freyvia-ffb"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+          "var": "turn_number", "is": "GREATER",  "value": "1",
+          "and": [{
+            "is": "SCREEN", "value": "game-battle-repeat",
+            "and": [{
+              "not": "SCREEN", "value": "battle-unit-0_ready", "or": [{"is": "SCREEN", "value": "battle-unit-0_ability"}]}, {
+              "not": "SCREEN", "value": "battle-unit-1_ready", "or": [{"is": "SCREEN", "value": "battle-unit-1_ability"}]}, {
+              "not": "SCREEN", "value": "battle-unit-2_ready", "or": [{"is": "SCREEN", "value": "battle-unit-2_ability"}]}, {
+              "not": "SCREEN", "value": "battle-unit-3_ready", "or": [{"is": "SCREEN", "value": "battle-unit-3_magic"}]}, {
+              "not": "SCREEN", "value": "battle-unit-4_ready", "or": [{"is": "SCREEN", "value": "battle-unit-4_magic"}]}
+            ]
+          }]
+        },
+        "actions": [{
+          "type": "MSG", "value": "Attack ${turn_number}"}, {
+          "type": "BATCH", "value": "start"}, {
+          "type": "TAP", "value": "battle-unit_5"}, {
+          "type": "TAP", "value": "battle-unit_4"}, {
+          "type": "TAP", "value": "battle-unit_0"}, {
+          "type": "TAP", "value": "battle-unit_1"}, {
+          "type": "TAP", "value": "battle-unit_2"}, {
+          "type": "BATCH", "value": "end"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "ADD", "value": "1", "var": "turn_number"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+
+        "condition": {
+           "is": "SCREEN", "value": "battle-actions"
+         },
+         "actions": [{
+           "type": "MSG", "value": "Backing up, stuck on skill screen"}, {
+           "type": "TAP", "value": "battle-actions-back"}, {
+           "type": "REPEAT", "value": ""}
+         ]}, {
+
+        "condition": {
+          "is": "SCREEN", "value": "game-battle",
+          "and": [{
+            "not": "SCREEN", "value": "game-battle-auto_off"
+          }]
+        },
+        "actions": [{
+          "type": "SET", "value": "0", "var": "_loops"}
+        ]
+      }]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "barbariccia_position", "value": "4", "type": "INT"}, {
+    "name": "unit_name", "value": "Barbariccia", "type": "STRING"}
+  ],
+  "includes": [],
+  "states": {
+
+    "zskill_barbariccia-tornado": {
+      "name": "Barbariccia - Tornado",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Barbariccia - Tornado (POS: ${barbariccia_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${barbariccia_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-3", "count": "2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
+    },
+
+    "zskill_barbariccia-sunder": {
+      "name": "Barbariccia - Sunder",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Barbariccia - Sunder (POS: ${barbariccia_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${barbariccia_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "5"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
+    }
+  }
+}

@@ -1,0 +1,76 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "ayaka_position", "value": "3", "type": "INT"}, {
+    "name": "unit_name", "value": "Ayaka", "type": "STRING"}
+  ],
+  "includes": [],
+  "states": {
+
+    "zskill_ayaka-embolden": {
+      "name": "Ayaka - Embolden",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Ayaka - Embolden (POS: ${ayaka_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "3"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
+    },
+
+    "zskill_ayaka-stopdetach": {
+      "name": "Ayaka - Stop Detach",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Ayaka - Stop Detach (POS: ${ayaka_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "4"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
+    },
+
+    "zskill_ayaka-curaja": {
+      "name": "Ayaka - Curaja",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Ayaka - Curaja (POS: ${ayaka_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
+    }
+  }
+}
