@@ -27,6 +27,26 @@
           "type": "POP"}
         ]}
       ]
+    },
+
+    "zskill_barbariccia-sunder": {
+      "name": "Barbariccia - Sunder",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Barbariccia - Sunder (POS: ${barbariccia_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${barbariccia_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "5"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
     }
   }
 }

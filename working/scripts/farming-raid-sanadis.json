@@ -162,7 +162,7 @@
           "type": "BATCH", "value": "start"}, {
           "type": "TAP", "value": "battle-unit_3"}, {
           "type": "TAP", "value": "battle-unit_0"}, {
-          "type": "BATCH", "value": "start"}, {
+          "type": "BATCH", "value": "end"}, {
           "type": "WAIT", "value": "250"}, {
           "type": "BATCH", "value": "start"}, {
           "type": "TAP", "value": "battle-unit_4"}, {
@@ -193,7 +193,6 @@
           "type": "PUSH", "value": "zskill_ayaka-stopdetach"}, {
           "type": "TAP", "value": "battle-unit_3"}, {
           "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_3"}, {
           "type": "REPEAT"}
         ]
       }, {

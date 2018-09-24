@@ -49,6 +49,28 @@
           "type": "POP"}
         ]}
       ]
+    },
+
+    "zskill_ayaka-curaja": {
+      "name": "Ayaka - Curaja",
+      "includes": [],
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "MSG", "value": "Ayaka - Curaja (POS: ${ayaka_position})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "POP"}
+        ]}
+      ]
     }
   }
 }
