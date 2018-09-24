@@ -98,7 +98,7 @@ public class ScriptRunner {
         }
         Level min = webLogHandler.getLevel();
         if (fileHandler != null) {
-            min = webLogHandler.getLevel().intValue() < fileHandler.getLevel().intValue() ? webLogHandler.getLevel(): fileHandler.getLevel();
+            min = webLogHandler.getLevel().intValue() < fileHandler.getLevel().intValue() ? webLogHandler.getLevel() : fileHandler.getLevel();
         }
         logger.setLevel(webLogHandler.getLevel());
         shell.setLevel(webLogHandler.getLevel());
@@ -109,26 +109,35 @@ public class ScriptRunner {
         elapsedTime = 0;
 
         // Script Includes
-        for (String scriptIncludeId : scriptDefinition.getIncludes()) {
-            ScriptDefinition otherDefinition = ScriptDefinition.read(scriptIncludeId);
-            if (otherDefinition == null) {
-                logger.log(Level.SEVERE, "Could not find Script include: " + scriptIncludeId);
-            } else {
-                // Add Replace any existing state with states from the includes
-                for (Map.Entry<String, StateDefinition> otherState : otherDefinition.getStates().entrySet()) {
-                    if (scriptDefinition.getStates().containsKey(otherState.getKey())) {
-                        continue;
-                    }
-                    scriptDefinition.getStates().put(otherState.getKey(), otherState.getValue());
+        Map<String, ScriptDefinition> scriptDefinitions = Maps.newLinkedHashMap();
+        scriptDefinitions.put(scriptDefinition.getScriptId(), scriptDefinition);
+        scriptDefinitions.putAll(buildScriptDefinitionsFromIncludes(scriptDefinition.getIncludes()));
+
+        if (!CollectionUtils.isEmpty(scriptDefinition.getStates())) {
+            for (StateDefinition stateDefinition : scriptDefinition.getStates().values()) {
+                if (!scriptDefinitions.containsKey(scriptDefinition.getScriptId())) {
+                    scriptDefinitions.putAll(buildScriptDefinitionsFromIncludes(stateDefinition.getIncludes()));
                 }
-                // Add all vars
-                for (VarDefinition varDefinition : otherDefinition.getVars()) {
-                    boolean exists = false;
-                    for (VarDefinition currentDef : scriptDefinition.getVars()) {
-                        if (currentDef.getName().equals(varDefinition.getName())) {
-                            exists = true;
-                            break;
-                        }
+            }
+        }
+
+        for (ScriptDefinition otherDefinition : scriptDefinitions.values()) {
+            // Add Replace any existing state with states from the includes
+            for (Map.Entry<String, StateDefinition> otherState : otherDefinition.getStates().entrySet()) {
+                if (scriptDefinition.getStates().containsKey(otherState.getKey())) {
+                    continue;
+                }
+                scriptDefinition.getStates().put(otherState.getKey(), otherState.getValue());
+            }
+
+            // Add all vars
+            for (VarDefinition varDefinition : otherDefinition.getVars()) {
+                boolean exists = false;
+                for (VarDefinition currentDef : scriptDefinition.getVars()) {
+                    if (currentDef.getName().equals(varDefinition.getName())) {
+                        exists = true;
+                        break;
+                    }
 
                 }
                 if (!exists) {
@@ -211,6 +220,47 @@ public class ScriptRunner {
         this.deviceHelper = deviceHelper;
 
         status = Status.INIT;
+    }
+
+    private Map<String, ScriptDefinition> buildScriptDefinitionsFromIncludes(List<String> includes) {
+        Map<String, ScriptDefinition> scriptDefinitions = Maps.newLinkedHashMap();
+        for (String scriptId : includes) {
+            if (scriptDefinitions.containsKey(scriptId))
+                continue;
+
+            if (scriptId.trim().length() > 0) {
+                ScriptDefinition scriptDef = ScriptDefinition.read(scriptId);
+                if (scriptDef == null) {
+                    continue;
+                } else {
+                    scriptDefinitions.put(scriptId, scriptDef);
+                }
+
+                Map<String, StateDefinition> otherStates = scriptDef.getStates();
+                if (!CollectionUtils.isEmpty(otherStates)) {
+                    for (StateDefinition otherState : otherStates.values()) {
+                        scriptDefinitions.putAll(buildScriptDefinitionsFromIncludes(otherState.getIncludes()));
+                    }
+                }
+            }
+        }
+        return scriptDefinitions;
+    }
+
+    private void setupStateDefinitions(Map<String, ScriptDefinition> scriptDefinitionMap) {
+        for (ScriptDefinition scriptDefinition : scriptDefinitionMap.values()) {
+            for (StateDefinition stateDefinition : scriptDefinition.getStates().values()) {
+                if (!stateDefinition.getIncludes().isEmpty()) {
+                    for (String includeName : stateDefinition.getIncludes()) {
+                        if (scriptDefinition.getStates().containsKey(includeName)) {
+                            stateDefinition.getStatements().addAll(scriptDefinition.getStates().get(includeName).getStatements());
+                        } else {
+                            logger.log(Level.SEVERE, "Could not find statement include: " + includeName);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void updateLogger(Level level) {
