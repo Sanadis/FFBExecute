@@ -1,0 +1,71 @@
+{
+  "imports": [
+    "_common-no_op"
+  ],
+  "vars": [],
+  "states": {
+
+    "farm": {
+      "name": "Farm (Override)",
+      "includes": [
+        "_common-no_op"
+      ],
+      "variables": {
+        "test": {"value": "1", "type": "INT"}
+      },
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "TAP", "value": "menu_home-battle"}, {
+          "type": "WAIT", "value": "3000"}, {
+          "type": "MOVE", "value": "caiross"}
+        ]
+      }]
+    },
+
+    "caiross": {
+      "name": "Caiross Dungeon",
+      "includes": [
+        "_common-no_op"
+      ],
+      "variables": {},
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Entering Caiross Dungeon"}, {
+          "type": "TAP", "value": "menu_battle-caiross"}, {
+          "type": "RETURN"}
+        ]
+      }, {
+        "condition": {
+          "is": "SCREEN", "value": "menu_caiross"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Caiross found"}, {
+          "type": "MOVE", "value": "caiross-select"}
+        ]
+      }]
+    },
+
+    "caiross-select": {
+      "name": "Caiross Selection",
+      "includes": [
+        "_common-no_op"
+      ],
+      "variables": {},
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_caiross"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Selecting dungeon"}, {
+          "type": "STOP"}
+        ]
+      }]
+    }
+  }
+}
