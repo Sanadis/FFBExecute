@@ -15,7 +15,7 @@
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "MSG", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
+          "type": "INFO", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${nichol_position}"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
@@ -28,8 +28,7 @@
           "type": "TAP", "value": "battle-skill-top-5"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-unit_${nichol_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "POP"}
+          "type": "WAIT", "value": "1000"}
         ]
       }]
     },
@@ -41,7 +40,7 @@
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "MSG", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
+          "type": "INFO", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${nichol_position}"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
@@ -53,9 +52,7 @@
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
           "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_0"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "POP"}
+          "type": "TAP", "value": "battle-unit_0"}
         ]
       }]
     }

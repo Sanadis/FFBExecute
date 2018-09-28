@@ -1,19 +1,20 @@
 //@formatter:off
 {
 "vars": [],
-"includes": [],
+"includes": [
+  "ayaka",
+  "veritas",
+  "orlandeau",
+  "barbariccia",
+  "freyvia"
+],
 "states": {
   "arena-battle-setup": {
     "name": "Arena - Battle - Setup (Override)",
     "description":"Setup each unit and start the fight",
     "includes": [
       "_arena-battle-fight",
-      "_common-no_op",
-      "ayaka",
-      "veritas",
-      "orlandeau",
-      "barbariccia",
-      "freyvia"
+      "_common-no_op"
     ],
     "statements": [{
         "condition": {
@@ -30,9 +31,9 @@
           ]
         },
         "actions": [{
-          "type": "MSG", "value": "Stop has been detected, trying to resolve"}, {
+          "type": "INFO", "value": "Stop has been detected, trying to resolve"}, {
           "type": "SET", "value": "1", "var": "setup"}, {
-          "type": "PUSH", "value": "zskill_ayaka-stopdetach"}, {
+          "type": "CALL", "value": "@ayaka-stopdetach"}, {
           "type": "TAP", "value": "battle-unit_3"}, {
           "type": "WAIT", "value": "3000"}, {
           "type": "TAP",  "value": "battle-reload"}, {
@@ -51,7 +52,7 @@
         },
         "actions": [{
           "type": "SET", "value": "0", "var": "setup"}, {
-          "type": "PUSH", "value": "zskill_ayaka-curaja"}, {
+          "type": "CALL", "value": "@ayaka-curaja"}, {
           "type": "TAP", "value": "battle-unit_3"}, {
           "type": "WAIT", "value": "3000"}, {
           "type": "TAP",  "value": "battle-reload"}, {
@@ -69,7 +70,7 @@
         ]
       },
       "actions": [{
-        "type": "PUSH", "value": "zskill_veritas-punishment"}, {
+        "type": "CALL", "value": "@veritas-punishment"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -83,7 +84,7 @@
         ]
       },
       "actions": [{
-        "type": "PUSH", "value": "zskill_orlandeau-dr"}, {
+        "type": "CALL", "value": "@orlandeau-dr"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -97,7 +98,7 @@
         ]
       },
       "actions": [{
-        "type": "PUSH", "value": "zskill_barbariccia-sunder"}, {
+        "type": "CALL", "value": "@barbariccia-sunder"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -111,7 +112,7 @@
         ]
       },
       "actions": [{
-        "type": "PUSH", "value": "zskill_freyvia-ffb"}, {
+        "type": "CALL", "value": "@freyvia-ffb"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -120,7 +121,7 @@
         "is": "SCREEN", "value": "game-battle-repeat"
       },
       "actions": [{
-        "type": "MSG", "value": "Attacking"}, {
+        "type": "INFO", "value": "Attacking"}, {
         "type": "BATCH", "value": "start"}, {
         "type": "TAP", "value": "battle-unit_5"}, {
         "type": "TAP", "value": "battle-unit_4"}, {

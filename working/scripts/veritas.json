@@ -7,7 +7,7 @@
   "includes": [],
   "states": {
 
-    "zskill_veritas-impact": {
+    "@veritas-impact": {
       "name": "Veritas of the Dark - Impact",
       "includes": [],
       "statements": [{
@@ -15,30 +15,28 @@
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "MSG", "value": "Veritas of the Dark - Impact (POS: ${votd_position})"}, {
+          "type": "INFO", "value": "Veritas of the Dark - Impact (POS: ${votd_position})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${votd_position}"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-skill-top-4"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "POP"}
+          "type": "WAIT", "value": "1000"}
         ]
       }]
     },
 
-    "zskill_veritas-punishment": {
+    "@veritas-punishment": {
       "name": "Veritas of the Dark - Dark Punishment",
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         }, "actions": [{
-          "type": "MSG", "value": "Veritas of the Dark - Dark Punishment (POS: ${votd_position})"}, {
+          "type": "INFO", "value": "Veritas of the Dark - Dark Punishment (POS: ${votd_position})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${votd_position}"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "1"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "POP"}
+          "type": "WAIT", "value": "1000"}
         ]
       }]
     }

@@ -7,7 +7,7 @@
   "includes": [],
   "states": {
 
-    "zskill_orlandeau-dr": {
+    "@orlandeau-dr": {
       "name": "Orlandeau - Divine Ruination",
       "includes": [],
       "statements": [{
@@ -15,14 +15,13 @@
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "MSG", "value": "Orlandeau - Divine Ruination (POS: ${orlandeau_position})"}, {
+          "type": "INFO", "value": "Orlandeau - Divine Ruination (POS: ${orlandeau_position})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${orlandeau_position}"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "1"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "POP"}
+          "type": "WAIT", "value": "1000"}
         ]
       }]
     }
