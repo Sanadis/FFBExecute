@@ -1,60 +1,64 @@
 //@formatter:off
 {
   "vars": [{
-    "name": "nichol_position", "value": "4", "type": "INT"}, {
     "name": "unit_name", "value": "Nichol", "type": "STRING"}
   ],
-  "includes": [],
+  "imports": [],
   "states": {
 
-    "_nichol-buffs": {
+    "@nichol-buffs": {
       "name": "Nichol - Buffs",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${nichol_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Nichol - Buffs (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "5"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
           "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_${nichol_position}"}, {
+          "type": "TAP", "value": "battle-unit_${index}"}, {
           "type": "WAIT", "value": "1000"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
           "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_${nichol_position}"}, {
+          "type": "TAP", "value": "battle-unit_${index}"}, {
           "type": "WAIT", "value": "1000"}
         ]
       }]
     },
 
-    "_nichol-energy": {
+    "@nichol-energy": {
       "name": "Nichol - Energy",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Nichol - Buffs (POS: ${nichol_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${nichol_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Nichol - Energy (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "6"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_4"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_0"}
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "1500"}
         ]
       }]
     }
+
   }
 }

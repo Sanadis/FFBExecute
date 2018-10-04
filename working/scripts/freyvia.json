@@ -1,27 +1,27 @@
 //@formatter:off
 {
   "vars": [{
-    "name": "freyvia_position", "value": "2", "type": "INT"}, {
     "name": "unit_name", "value": "Freyvia", "type": "STRING"}
   ],
-  "includes": [],
+  "imports": [],
   "states": {
 
     "@freyvia-ffb": {
       "name": "Freyvia - Frost Flower Blitz",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Freyvia - Frost Flower Blitz (POS: ${freyvia_position}"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${freyvia_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Freyvia - Frost Flower Blitz (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "WAIT", "value": "1500"}
         ]}
       ]
     }

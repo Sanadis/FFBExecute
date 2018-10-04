@@ -1,42 +1,44 @@
 //@formatter:off
 {
   "vars": [{
-    "name": "votd_position", "value": "0", "type": "INT"}, {
     "name": "unit_name", "value": "Veritas of the Dark", "type": "STRING"}
   ],
-  "includes": [],
+  "imports": [],
   "states": {
 
     "@veritas-impact": {
       "name": "Veritas of the Dark - Impact",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Veritas of the Dark - Impact (POS: ${votd_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${votd_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Veritas of the Dark - Impact (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-4"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "WAIT", "value": "2000"}
         ]
       }]
     },
 
     "@veritas-punishment": {
       "name": "Veritas of the Dark - Dark Punishment",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         }, "actions": [{
-          "type": "INFO", "value": "Veritas of the Dark - Dark Punishment (POS: ${votd_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${votd_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Veritas of the Dark - Dark Punishment (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "1"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "WAIT", "value": "2000"}
         ]
       }]
     }

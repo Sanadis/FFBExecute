@@ -1,0 +1,84 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Rinoa", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@rinoa-tornado-triple": {
+      "name": "Rinoa - Tornado Triple",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Rinoa - Tornado Triple (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "4"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "SLOW_DOWN", "value": "battle-skill-top-slider", "count": "1"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-0"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-0"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-0"}, {
+          "type": "WAIT", "value": "1000"}
+        ]}
+      ]
+    },
+
+    "@rinoa-tornado-double": {
+      "name": "Rinoa - Tornado Double",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Rinoa - Tornado Double (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "4"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "SLOW_DOWN", "value": "battle-skill-top-slider", "count": "1"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-0"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-0"}, {
+          "type": "WAIT", "value": "1500"}
+        ]}
+      ]
+    },
+
+    "@rinoa-angelwing": {
+      "name": "Rinoa - Angel Wing",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Rinoa - Angel Wing (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "6"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "WAIT", "value": "1500"}
+        ]}
+      ]
+    }
+
+  }
+}

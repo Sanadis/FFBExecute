@@ -1,29 +1,29 @@
 //@formatter:off
 {
   "vars": [{
-    "name": "barbariccia_position", "value": "4", "type": "INT"}, {
     "name": "unit_name", "value": "Barbariccia", "type": "STRING"}
   ],
-  "includes": [],
+  "imports": [],
   "states": {
 
     "@barbariccia-tornado": {
       "name": "Barbariccia - Tornado",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Barbariccia - Tornado (POS: ${barbariccia_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${barbariccia_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Barbariccia - Tornado (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-skill-top-3", "count": "2"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "WAIT", "value": "1500"}
         ]}
       ]
     },
@@ -31,18 +31,19 @@
     "@barbariccia-sunder": {
       "name": "Barbariccia - Sunder",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Barbariccia - Sunder (POS: ${barbariccia_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${barbariccia_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Barbariccia - Sunder (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "5"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "WAIT", "value": "1500"}
         ]}
       ]
     }

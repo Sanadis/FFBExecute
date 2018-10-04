@@ -1,13 +1,13 @@
 //@formatter:off
 {
   "vars": [{
-    "name": "unit_name", "value": "Orlandeau", "type": "STRING"}
+    "name": "unit_name", "value": "Lara Croft", "type": "STRING"}
   ],
   "imports": [],
   "states": {
 
-    "@orlandeau-dr": {
-      "name": "Orlandeau - Divine Ruination",
+    "@laracoft-fullautoshotgun": {
+      "name": "Xon - Waylay",
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
@@ -15,15 +15,13 @@
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Orlandeau - Divine Ruination (POS: ${index})"}, {
+          "type": "INFO", "value": "Lara Croft - Full Auto Shotgun (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
           "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "1"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "TAP", "value": "battle-skill-top-4"}, {
           "type": "WAIT", "value": "1500"}
-        ]
-      }]
+        ]}
+      ]
     }
   }
 }

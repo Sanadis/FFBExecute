@@ -1,7 +1,7 @@
 //@formatter:off
 {
 "vars": [],
-"includes": [
+"imports": [
   "ayaka",
   "veritas",
   "orlandeau",
@@ -9,6 +9,23 @@
   "freyvia"
 ],
 "states": {
+
+  "_arena-menu-opponent-select": {
+  "statements" : [{
+      "condition": {
+        "is": "SCREEN", "value": "menu-arena-opponent_select"
+      },
+      "actions": [{
+        "type": "SLOW_UP", "value": "menu-arena-opponent_drag"}, {
+        "type": "SLOW_UP", "value": "menu-arena-opponent_drag"}, {
+        "type": "SLOW_UP", "value": "menu-arena-opponent_drag"}, {
+        "type": "TAP", "value": "menu-arena-opponent_first"}, {
+        "type": "WAIT", "value": "2000"}, {
+        "type": "REPEAT", "value": ""}
+      ]
+    }]
+  },
+
   "arena-battle-setup": {
     "name": "Arena - Battle - Setup (Override)",
     "description":"Setup each unit and start the fight",
@@ -16,120 +33,192 @@
       "_arena-battle-fight",
       "_common-no_op"
     ],
+     "variables": {
+       "index_votd": {"value": "0", "type": "INT"},
+       "index_orlandeau": {"value": "1", "type": "INT"},
+       "index_rinoa": {"value": "2", "type": "INT"},
+       "index_ayaka": {"value": "3", "type": "INT"},
+       "index_barb": {"value": "4", "type": "INT"},
+
+       "segment": {"value": "0", "type": "INT"},
+       "arena_turn": {"value": "1", "type": "INT"},
+       "elysium": {"value": "0", "type": "INT"},
+       "purify": {"value": "0", "type": "INT"},
+       "availableUnits": {"value": "0", "type": "INT"},
+       "modified": {"value": "0", "type": "INT"},
+       "lbAttempts": {"value": "0", "type": "INT"}
+    },
     "statements": [{
-        "condition": {
-          "is": "SCREEN", "value": "game-battle-repeat",
-          "and": [{
-            "is": "SCREEN", "value": "battle-unit-3_ready"}, {
-            "is": "SCREEN", "value": "battle-unit-3_mp"}
-          ],
-          "andOr": [{
-            "is": "SCREEN", "value": "battle-unit-0_stop"}, {
-            "is": "SCREEN", "value": "battle-unit-1_stop"}, {
-            "is": "SCREEN", "value": "battle-unit-2_stop"}, {
-            "is": "SCREEN", "value": "battle-unit-4_stop"}
-          ]
-        },
-        "actions": [{
-          "type": "INFO", "value": "Stop has been detected, trying to resolve"}, {
-          "type": "SET", "value": "1", "var": "setup"}, {
-          "type": "CALL", "value": "@ayaka-stopdetach"}, {
-          "type": "TAP", "value": "battle-unit_3"}, {
-          "type": "WAIT", "value": "3000"}, {
-          "type": "TAP",  "value": "battle-reload"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "REPEAT"}
-        ]
-      }, {
-
-        "condition": {
-          "is": "SCREEN", "value": "game-battle-repeat",
-          "and": [{
-            "is": "SCREEN", "value": "battle-unit-3_mp"}, {
-            "is": "SCREEN", "value": "battle-unit-3_ready"}, {
-            "not": "SCREEN", "value": "battle-unit-3_magic"}
-          ]
-        },
-        "actions": [{
-          "type": "SET", "value": "0", "var": "setup"}, {
-          "type": "CALL", "value": "@ayaka-curaja"}, {
-          "type": "TAP", "value": "battle-unit_3"}, {
-          "type": "WAIT", "value": "3000"}, {
-          "type": "TAP",  "value": "battle-reload"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "REPEAT"}
-        ]
-      }, {
 
       "condition": {
-        "is": "SCREEN", "value": "game-battle-repeat",
+        "is"    : "SCREEN", "value" : "game-battle",
         "and": [{
-          "is": "SCREEN", "value": "battle-unit-0_mp"}, {
-          "is": "SCREEN", "value": "battle-unit-0_ready"}, {
-          "not": "SCREEN", "value": "battle-unit-0_ability"}
+          "var": "_loops", "is": "GREATER", "value": "60"}
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@veritas-punishment"}, {
+        "type": "INFO", "value": "Force Attacking - Pause Detected (Turn: ${arena_turn})"}, {
+        "type": "ADD", "value": "1", "var": "arena_turn"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "BATCH", "value": "start"}, {
+        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
+        "type": "TAP", "value": "battle-unit_${index_barb}"}, {
+        "type": "TAP", "value": "battle-unit_${index_rinoa}"}, {
+        "type": "TAP", "value": "battle-unit_${index_votd}"}, {
+        "type": "TAP", "value": "battle-unit_${index_orlandeau}"}, {
+        "type": "BATCH", "value": "end"}, {
+        "type": "WAIT", "value": "2000"}, {
+        "type": "REPEAT", "value": ""}
+      ]
+
+    }, {
+
+      "condition": {
+        "is"    : "SCREEN", "value" : "game-battle",
+        "and": [{
+          "not": "SCREEN", "value": "game-battle-repeat"
+        }]
+      },
+      "actions": [{
+        "type": "WAIT", "value": "3000"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "REPEAT"}
+      ]
+
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }, {
+          "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_ayaka}"} }
+        ],
+        "andOr": [{
+          "is": "SCREEN", "value": "battle-unit-${index_votd}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_orlandeau}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_rinoa}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_barb}_stop"}
+        ]
+      },
+      "actions": [{
+        "type": "INFO", "value": "Stop has been detected, trying to resolve"}, {
+        "type": "CALL", "value": "@ayaka-stopdetach", "args": {"index": "${index_ayaka}"}}, {
+        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
+        "type": "WAIT", "value": "3000"}, {
         "type": "REPEAT"}
       ]
     }, {
 
       "condition": {
-        "is": "SCREEN", "value": "game-battle-repeat",
+        "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "SCREEN", "value": "battle-unit-1_mp"}, {
-          "is": "SCREEN", "value": "battle-unit-1_ready"}, {
-          "not": "SCREEN", "value": "battle-unit-1_ability"}
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }, {
+          "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_ayaka}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@orlandeau-dr"}, {
+        "type": "INFO", "value": "Healing team"}, {
+        "type": "CALL", "value": "@ayaka-curaja", "args": {"index": "${index_ayaka}"}}, {
+        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
+        "type": "WAIT", "value": "3000"}, {
         "type": "REPEAT"}
       ]
     }, {
 
       "condition": {
-        "is": "SCREEN", "value": "game-battle-repeat",
+        "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "SCREEN", "value": "battle-unit-4_mp"}, {
-          "is": "SCREEN", "value": "battle-unit-4_ready"}, {
-          "not": "SCREEN", "value": "battle-unit-4_ability"}
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_votd}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_votd}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_votd}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@barbariccia-sunder"}, {
+        "type": "CALL", "value": "@veritas-punishment", "args": {"index": "${index_votd}"}}, {
         "type": "REPEAT"}
       ]
     }, {
 
       "condition": {
-        "is": "SCREEN", "value": "game-battle-repeat",
+        "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "SCREEN", "value": "battle-unit-2_mp"}, {
-          "is": "SCREEN", "value": "battle-unit-2_ready"}, {
-          "not": "SCREEN", "value": "battle-unit-2_ability"}
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_orlandeau}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_orlandeau}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_orlandeau}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@freyvia-ffb"}, {
+        "type": "CALL", "value": "@orlandeau-dr", "args": {"index": "${index_orlandeau}"}}, {
         "type": "REPEAT"}
       ]
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_barb}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_barb}"} }, {
+          "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_barb}"} }
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@barbariccia-tornado", "args": {"index": "${index_barb}"}}, {
+//        "type": "CALL", "value": "@barbariccia-sunder", "args": {"index": "${index_barb}"}}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }, {
+          "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_rinoa}"} }, {
+          "var": "arena_turn", "not": "EQUAL",  "value": "2"}, {
+          "var": "arena_turn", "not": "EQUAL",  "value": "6"}
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@rinoa-tornado-triple", "args": {"index": "${index_rinoa}"}}, {
+        "type": "REPEAT"}
+      ]
+
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_rinoa}"} }, {
+          "var": "arena_turn", "is": "EQUAL",  "value": "2", "or": [{
+            "var": "arena_turn", "is": "EQUAL",  "value": "6"}]}
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@rinoa-angelwing", "args": {"index": "${index_rinoa}"}}, {
+        "type": "REPEAT"}
+      ]
+
     }, {
 
       "condition": {
         "is": "SCREEN", "value": "game-battle-repeat"
       },
       "actions": [{
-        "type": "INFO", "value": "Attacking"}, {
+        "type": "INFO", "value": "Attacking (Turn: ${arena_turn})"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "BATCH", "value": "start"}, {
-        "type": "TAP", "value": "battle-unit_5"}, {
-        "type": "TAP", "value": "battle-unit_4"}, {
-        "type": "TAP", "value": "battle-unit_0"}, {
-        "type": "TAP", "value": "battle-unit_1"}, {
-        "type": "TAP", "value": "battle-unit_2"}, {
+        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
+        "type": "TAP", "value": "battle-unit_${index_barb}"}, {
+        "type": "TAP", "value": "battle-unit_${index_rinoa}"}, {
+        "type": "TAP", "value": "battle-unit_${index_votd}"}, {
+        "type": "TAP", "value": "battle-unit_${index_orlandeau}"}, {
         "type": "BATCH", "value": "end"}, {
-        "type": "WAIT", "value": "1000"}, {
+        "type": "WAIT", "value": "5000"}, {
+        "type": "ADD", "value": "1", "var": "arena_turn"}, {
         "type": "REPEAT"}
       ]
     }]

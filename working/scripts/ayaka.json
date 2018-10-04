@@ -1,28 +1,28 @@
 //@formatter:off
 {
   "vars": [{
-    "name": "ayaka_position", "value": "3", "type": "INT"}, {
     "name": "unit_name", "value": "Ayaka", "type": "STRING"}
   ],
-  "includes": [],
+  "imports": [],
   "states": {
     "@ayaka-embolden": {
       "name": "Ayaka - Embolden",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Ayaka - Embolden (POS: ${ayaka_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${ayaka_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Ayaka - Embolden (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "3"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_${ayaka_position}"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}
         ]}
       ]
     },
@@ -30,19 +30,20 @@
     "@ayaka-stopdetach": {
       "name": "Ayaka - Stop Detach",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Ayaka - Stop Detach (POS: ${ayaka_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${ayaka_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Ayaka - Stop Detach (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "4"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_${ayaka_position}"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-unit_${index}"}, {
           "type": "WAIT", "value": "1000"}
         ]}
       ]
@@ -51,20 +52,21 @@
     "@ayaka-curaja": {
       "name": "Ayaka - Curaja",
       "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
         },
         "actions": [{
-          "type": "INFO", "value": "Ayaka - Curaja (POS: ${ayaka_position})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${ayaka_position}"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "INFO", "value": "Ayaka - Curaja (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
-          "type": "WAIT", "value": "1000"}, {
+          "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "1000"}, {
-          "type": "TAP", "value": "battle-unit_${ayaka_position}"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "1500"}
         ]}
       ]
     }

@@ -1,0 +1,297 @@
+{
+  "items" : [ {
+    "name" : "allow-ss",
+    "description" : null,
+    "tierId" : "*",
+    "display" : "Enable Screen Saver",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "player-level",
+    "description" : "What is your player level?  We need to to calculate your available energy reserve.",
+    "tierId" : "farm",
+    "display" : "Player Level",
+    "value" : "79",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "min-energy",
+    "description" : "TMR farming will stop when this energy level is hit.",
+    "tierId" : "farm",
+    "display" : "Transition Energy",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "menu-item",
+    "description" : "Which menu item do you wish to farm.  Typically the first item is a Exploration so you would want two or three.",
+    "tierId" : "farm",
+    "display" : "Menu Item",
+    "value" : "2",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Top)",
+      "value" : "0"
+    }, {
+      "name" : "Two",
+      "value" : "1"
+    }, {
+      "name" : "Three",
+      "value" : "2"
+    }, {
+      "name" : "Four",
+      "value" : "3"
+    } ]
+  }, {
+    "name" : "vortex-item",
+    "description" : "Which vortex item is the raid?",
+    "tierId" : "raid",
+    "display" : "Vortex Item",
+    "value" : "2",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Top)",
+      "value" : "0"
+    }, {
+      "name" : "Two",
+      "value" : "1"
+    }, {
+      "name" : "Three",
+      "value" : "2"
+    } ]
+  }, {
+    "name" : "farm-party-index",
+    "description" : "Which unit group do you TMR farm with?",
+    "tierId" : "farm",
+    "display" : "Farm Party",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 0,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Left)",
+      "value" : "0"
+    }, {
+      "name" : "Two",
+      "value" : "1"
+    }, {
+      "name" : "Three",
+      "value" : "2"
+    }, {
+      "name" : "Four",
+      "value" : "3"
+    }, {
+      "name" : "Five (Right)",
+      "value" : "4"
+    } ]
+  }, {
+    "name" : "raid-party-index",
+    "description" : "Which unit group do you RAID with?",
+    "tierId" : "raid",
+    "display" : "Raid Party",
+    "value" : "4",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 0,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Left)",
+      "value" : "0"
+    }, {
+      "name" : "Two",
+      "value" : "1"
+    }, {
+      "name" : "Three",
+      "value" : "2"
+    }, {
+      "name" : "Four",
+      "value" : "3"
+    }, {
+      "name" : "Five (Right)",
+      "value" : "4"
+    } ]
+  }, {
+    "name" : "farm-timer",
+    "description" : "When elapsed time is is greater then this value, farming will stop and another operation will take place.",
+    "tierId" : "farm",
+    "display" : "Transition Timer",
+    "value" : "3600",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "SECONDS",
+    "order" : 99,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "raid-menu-item",
+    "description" : "Which raid menu item do you want to farm?",
+    "tierId" : "raid",
+    "display" : "Menu Item",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 21,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Usually Elt)",
+      "value" : "0"
+    }, {
+      "name" : "Two (Usually Pro)",
+      "value" : "1"
+    }, {
+      "name" : "Three (Usually Adv)",
+      "value" : "2"
+    } ]
+  }, {
+    "name" : "allow-raid",
+    "description" : "Enable or disable Raiding",
+    "tierId" : "enable",
+    "display" : "Raid",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Disabled",
+      "value" : "0"
+    } ]
+  }, {
+    "name" : "alt-raid",
+    "description" : "Is the RAID available on the home banner?  If so enable this.",
+    "tierId" : "raid",
+    "display" : "Home Raid",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Disabled",
+      "value" : "0"
+    } ]
+  }, {
+    "name" : "allow-farm",
+    "description" : "Enable / Disable TMR farming",
+    "tierId" : "enable",
+    "display" : "Farm",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Disabled",
+      "value" : "0"
+    } ]
+  }, {
+    "name" : "allow-arena",
+    "description" : "Enable / Disable ARENA",
+    "tierId" : "enable",
+    "display" : "Arena",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Disabled",
+      "value" : "0"
+    } ]
+  }, {
+    "name" : "arena-party-index",
+    "description" : null,
+    "tierId" : "arena",
+    "display" : "Battle Index",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 0,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Left)",
+      "value" : "0"
+    }, {
+      "name" : "Two",
+      "value" : "1"
+    }, {
+      "name" : "Three",
+      "value" : "2"
+    }, {
+      "name" : "Four",
+      "value" : "3"
+    }, {
+      "name" : "Five (Right)",
+      "value" : "4"
+    } ]
+  }, {
+    "name" : "arena-party-defense-index",
+    "description" : null,
+    "tierId" : "arena",
+    "display" : "Defense Index",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 0,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Left)",
+      "value" : "0"
+    }, {
+      "name" : "Two",
+      "value" : "1"
+    }, {
+      "name" : "Three",
+      "value" : "2"
+    }, {
+      "name" : "Four",
+      "value" : "3"
+    }, {
+      "name" : "Five (Right)",
+      "value" : "4"
+    } ]
+  } ]
+}
