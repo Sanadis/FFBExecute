@@ -247,6 +247,160 @@
     } ],
     "enabled" : true
   }, {
+    "name" : "menu_caiross_level-b10-locked",
+    "screenId" : "menu_caiross_level-b10-locked",
+    "points" : [ {
+      "x" : 702,
+      "y" : 589,
+      "r" : 174,
+      "g" : 168,
+      "b" : 144
+    }, {
+      "x" : 702,
+      "y" : 598,
+      "r" : 169,
+      "g" : 163,
+      "b" : 140
+    }, {
+      "x" : 702,
+      "y" : 608,
+      "r" : 115,
+      "g" : 110,
+      "b" : 94
+    }, {
+      "x" : 714,
+      "y" : 603,
+      "r" : 144,
+      "g" : 138,
+      "b" : 119
+    }, {
+      "x" : 714,
+      "y" : 593,
+      "r" : 174,
+      "g" : 168,
+      "b" : 144
+    }, {
+      "x" : 722,
+      "y" : 592,
+      "r" : 174,
+      "g" : 168,
+      "b" : 144
+    }, {
+      "x" : 729,
+      "y" : 589,
+      "r" : 174,
+      "g" : 168,
+      "b" : 144
+    }, {
+      "x" : 729,
+      "y" : 609,
+      "r" : 109,
+      "g" : 105,
+      "b" : 90
+    }, {
+      "x" : 745,
+      "y" : 608,
+      "r" : 115,
+      "g" : 110,
+      "b" : 94
+    }, {
+      "x" : 750,
+      "y" : 598,
+      "r" : 169,
+      "g" : 163,
+      "b" : 140
+    }, {
+      "x" : 739,
+      "y" : 598,
+      "r" : 169,
+      "g" : 163,
+      "b" : 140
+    }, {
+      "x" : 745,
+      "y" : 589,
+      "r" : 174,
+      "g" : 168,
+      "b" : 144
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_caiross_level-b10-unlocked",
+    "screenId" : "menu_caiross_level-b10-unlocked",
+    "points" : [ {
+      "x" : 702,
+      "y" : 608,
+      "r" : 162,
+      "g" : 157,
+      "b" : 135
+    }, {
+      "x" : 702,
+      "y" : 598,
+      "r" : 241,
+      "g" : 233,
+      "b" : 201
+    }, {
+      "x" : 702,
+      "y" : 589,
+      "r" : 248,
+      "g" : 240,
+      "b" : 207
+    }, {
+      "x" : 714,
+      "y" : 593,
+      "r" : 248,
+      "g" : 240,
+      "b" : 207
+    }, {
+      "x" : 714,
+      "y" : 603,
+      "r" : 205,
+      "g" : 198,
+      "b" : 171
+    }, {
+      "x" : 722,
+      "y" : 592,
+      "r" : 248,
+      "g" : 240,
+      "b" : 207
+    }, {
+      "x" : 729,
+      "y" : 589,
+      "r" : 248,
+      "g" : 240,
+      "b" : 207
+    }, {
+      "x" : 729,
+      "y" : 609,
+      "r" : 154,
+      "g" : 149,
+      "b" : 129
+    }, {
+      "x" : 745,
+      "y" : 608,
+      "r" : 162,
+      "g" : 157,
+      "b" : 135
+    }, {
+      "x" : 740,
+      "y" : 598,
+      "r" : 241,
+      "g" : 233,
+      "b" : 201
+    }, {
+      "x" : 745,
+      "y" : 589,
+      "r" : 248,
+      "g" : 240,
+      "b" : 207
+    }, {
+      "x" : 750,
+      "y" : 598,
+      "r" : 241,
+      "g" : 233,
+      "b" : 201
+    } ],
+    "enabled" : true
+  }, {
     "name" : "menu_home",
     "screenId" : "menu_home",
     "points" : [ {
@@ -563,6 +717,54 @@
     "y" : 569,
     "w" : 272,
     "h" : 129,
+    "enabled" : true
+  }, {
+    "name" : "menu_caiross_dungeon-select",
+    "componentId" : "menu_caiross_dungeon-select",
+    "x" : 195,
+    "y" : 222,
+    "w" : 289,
+    "h" : 439,
+    "enabled" : true
+  }, {
+    "name" : "menu_caiross_level-index-0",
+    "componentId" : "menu_caiross_level-index-0",
+    "x" : 980,
+    "y" : 245,
+    "w" : 91,
+    "h" : 68,
+    "enabled" : true
+  }, {
+    "name" : "menu_caiross_level-index-1",
+    "componentId" : "menu_caiross_level-index-1",
+    "x" : 980,
+    "y" : 359,
+    "w" : 90,
+    "h" : 66,
+    "enabled" : true
+  }, {
+    "name" : "menu_caiross_level-index-2",
+    "componentId" : "menu_caiross_level-index-2",
+    "x" : 984,
+    "y" : 474,
+    "w" : 87,
+    "h" : 63,
+    "enabled" : true
+  }, {
+    "name" : "menu_caiross_level-index-3",
+    "componentId" : "menu_caiross_level-index-3",
+    "x" : 984,
+    "y" : 586,
+    "w" : 87,
+    "h" : 65,
+    "enabled" : true
+  }, {
+    "name" : "menu_caiross_level-select",
+    "componentId" : "menu_caiross_level-select",
+    "x" : 570,
+    "y" : 210,
+    "w" : 382,
+    "h" : 461,
     "enabled" : true
   }, {
     "name" : "menu_home-battle",
