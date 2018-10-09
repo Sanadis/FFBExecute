@@ -2,7 +2,50 @@
   "imports": [
     "_common-no_op"
   ],
-  "vars": [],
+  "vars": [{
+    "name": "runs",
+    "display": "Farm Runs",
+    "value": "0",
+    "type": "INT",
+    "modify": "VISIBLE",
+    "order": 5,
+    "tierId": "stats",
+    "description": "How many TMR runs have been accomplished"
+  }, {
+    "name": "caiross-dungeon",
+    "display": "Level",
+    "value": "1",
+    "type": "INT",
+    "modify": "EDITABLE",
+    "order": 1,
+    "tierId": "caiross",
+    "values": [{
+      "name": "Giants", "value": "0"}, {
+      "name": "Dragons", "value": "1"}, {
+      "name": "Necropolis", "value": "2"}
+    ],
+    "description": "Which level of Caiross dungeon to farm"
+  }, {
+    "name": "caiross-level",
+    "display": "Level",
+    "value": "1",
+    "type": "INT",
+    "modify": "EDITABLE",
+    "order": 2,
+    "tierId": "caiross",
+    "values": [{
+      "name": "B7", "value": "0"}, {
+      "name": "B8", "value": "1"}, {
+      "name": "B9", "value": "2"}, {
+      "name": "B10", "value": "3"}
+    ],
+    "description": "Which level of Caiross dungeon to farm"
+  }],
+  "varTiers": [
+    {"title":"Stats", "id":"stats"},
+    {"title":"Caiross", "id":"caiross"}
+  ],
+
   "states": {
 
     "farm": {
@@ -54,6 +97,7 @@
     "caiross-select": {
       "name": "Caiross Selection",
       "includes": [
+        "team-select",
         "_common-no_op"
       ],
       "variables": {},
@@ -66,7 +110,30 @@
           "type": "WAIT", "value": "500"}, {
           "type": "SWIPE_UP", "value": "menu_caiross_level-select"}, {
           "type": "WAIT", "value": "1500"}, {
-          "type": "STOP"}
+          "type": "TAP", "value": "menu_caiross_level-index-${caiross-level}"}, {
+          "type": "WAIT", "value": "1500"}, {
+          "type": "REPEAT"}
+        ]
+      }]
+    },
+
+    "team-select": {
+      "name": "Team Selection",
+      "includes": [
+        "_common-no_op"
+      ],
+      "variables": {},
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_unit-select"
+        },
+        "actions": [{
+          "type": "CALL", "value": "@keepAlive" }, {
+          "type": "ADD", "var": "runs", "value": "1"}, {
+          "type": "INFO", "value": "Starting run ${runs}"}, {
+          "type": "TAP", "value": "menu_unit-select_start"}, {
+          "type": "WAIT", "value": "5000"}, {
+          "type": "REPEAT"}
         ]
       }]
     }

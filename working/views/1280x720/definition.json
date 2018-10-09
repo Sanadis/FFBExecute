@@ -176,6 +176,198 @@
     } ],
     "enabled" : true
   }, {
+    "name" : "menu_battle-results",
+    "screenId" : "menu_battle-results",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_actions",
+    "screenId" : "menu_battle-results_actions",
+    "points" : [ {
+      "x" : 62,
+      "y" : 604,
+      "r" : 252,
+      "g" : 226,
+      "b" : 144
+    }, {
+      "x" : 49,
+      "y" : 617,
+      "r" : 246,
+      "g" : 207,
+      "b" : 105
+    }, {
+      "x" : 61,
+      "y" : 625,
+      "r" : 239,
+      "g" : 193,
+      "b" : 91
+    }, {
+      "x" : 49,
+      "y" : 633,
+      "r" : 237,
+      "g" : 196,
+      "b" : 96
+    }, {
+      "x" : 220,
+      "y" : 345,
+      "r" : 181,
+      "g" : 149,
+      "b" : 95
+    }, {
+      "x" : 220,
+      "y" : 435,
+      "r" : 175,
+      "g" : 141,
+      "b" : 95
+    }, {
+      "x" : 595,
+      "y" : 435,
+      "r" : 179,
+      "g" : 146,
+      "b" : 96
+    }, {
+      "x" : 595,
+      "y" : 345,
+      "r" : 185,
+      "g" : 153,
+      "b" : 97
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_rune",
+    "screenId" : "menu_battle-results_rune",
+    "points" : [ {
+      "x" : 450,
+      "y" : 546,
+      "r" : 146,
+      "g" : 122,
+      "b" : 73
+    }, {
+      "x" : 616,
+      "y" : 617,
+      "r" : 94,
+      "g" : 62,
+      "b" : 24
+    }, {
+      "x" : 616,
+      "y" : 545,
+      "r" : 116,
+      "g" : 90,
+      "b" : 48
+    }, {
+      "x" : 450,
+      "y" : 616,
+      "r" : 127,
+      "g" : 86,
+      "b" : 37
+    }, {
+      "x" : 534,
+      "y" : 544,
+      "r" : 205,
+      "g" : 175,
+      "b" : 109
+    }, {
+      "x" : 665,
+      "y" : 546,
+      "r" : 186,
+      "g" : 160,
+      "b" : 100
+    }, {
+      "x" : 665,
+      "y" : 617,
+      "r" : 119,
+      "g" : 80,
+      "b" : 33
+    }, {
+      "x" : 829,
+      "y" : 616,
+      "r" : 138,
+      "g" : 88,
+      "b" : 38
+    }, {
+      "x" : 830,
+      "y" : 546,
+      "r" : 160,
+      "g" : 127,
+      "b" : 73
+    }, {
+      "x" : 747,
+      "y" : 544,
+      "r" : 205,
+      "g" : 175,
+      "b" : 110
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_rune-5-star",
+    "screenId" : "menu_battle-results_rune-5-star",
+    "points" : [ {
+      "x" : 477,
+      "y" : 240,
+      "r" : 243,
+      "g" : 245,
+      "b" : 244
+    }, {
+      "x" : 466,
+      "y" : 240,
+      "r" : 241,
+      "g" : 244,
+      "b" : 243
+    }, {
+      "x" : 455,
+      "y" : 240,
+      "r" : 240,
+      "g" : 242,
+      "b" : 242
+    }, {
+      "x" : 444,
+      "y" : 240,
+      "r" : 239,
+      "g" : 241,
+      "b" : 241
+    }, {
+      "x" : 433,
+      "y" : 240,
+      "r" : 238,
+      "g" : 240,
+      "b" : 239
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_rune-6-star",
+    "screenId" : "menu_battle-results_rune-6-star",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_rune-legend",
+    "screenId" : "menu_battle-results_rune-legend",
+    "points" : [ {
+      "x" : 786,
+      "y" : 238,
+      "r" : 114,
+      "g" : 32,
+      "b" : 6
+    }, {
+      "x" : 786,
+      "y" : 262,
+      "r" : 117,
+      "g" : 33,
+      "b" : 6
+    }, {
+      "x" : 875,
+      "y" : 262,
+      "r" : 117,
+      "g" : 33,
+      "b" : 6
+    }, {
+      "x" : 875,
+      "y" : 238,
+      "r" : 112,
+      "g" : 33,
+      "b" : 6
+    } ],
+    "enabled" : true
+  }, {
     "name" : "menu_caiross",
     "screenId" : "menu_caiross",
     "points" : [ {
@@ -439,6 +631,41 @@
       "r" : 74,
       "g" : 53,
       "b" : 20
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_unit-select",
+    "screenId" : "menu_unit-select",
+    "points" : [ {
+      "x" : 966,
+      "y" : 457,
+      "r" : 125,
+      "g" : 80,
+      "b" : 37
+    }, {
+      "x" : 966,
+      "y" : 559,
+      "r" : 106,
+      "g" : 68,
+      "b" : 29
+    }, {
+      "x" : 1193,
+      "y" : 558,
+      "r" : 125,
+      "g" : 80,
+      "b" : 32
+    }, {
+      "x" : 1193,
+      "y" : 456,
+      "r" : 107,
+      "g" : 67,
+      "b" : 28
+    }, {
+      "x" : 1082,
+      "y" : 456,
+      "r" : 215,
+      "g" : 193,
+      "b" : 149
     } ],
     "enabled" : true
   }, {
@@ -719,6 +946,38 @@
     "h" : 129,
     "enabled" : true
   }, {
+    "name" : "menu_battle-results_actions-no",
+    "componentId" : "menu_battle-results_actions-no",
+    "x" : 681,
+    "y" : 349,
+    "w" : 379,
+    "h" : 82,
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_actions-replay",
+    "componentId" : "menu_battle-results_actions-replay",
+    "x" : 219,
+    "y" : 349,
+    "w" : 379,
+    "h" : 82,
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_get",
+    "componentId" : "menu_battle-results_get",
+    "x" : 664,
+    "y" : 546,
+    "w" : 164,
+    "h" : 69,
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_sell",
+    "componentId" : "menu_battle-results_sell",
+    "x" : 451,
+    "y" : 546,
+    "w" : 164,
+    "h" : 69,
+    "enabled" : true
+  }, {
     "name" : "menu_caiross_dungeon-select",
     "componentId" : "menu_caiross_dungeon-select",
     "x" : 195,
@@ -773,6 +1032,14 @@
     "y" : 620,
     "w" : 90,
     "h" : 77,
+    "enabled" : true
+  }, {
+    "name" : "menu_unit-select_start",
+    "componentId" : "menu_unit-select_start",
+    "x" : 968,
+    "y" : 457,
+    "w" : 224,
+    "h" : 102,
     "enabled" : true
   }, {
     "name" : "os-app-icon",
