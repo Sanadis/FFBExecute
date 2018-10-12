@@ -6,14 +6,25 @@
   "imports": [],
   "states": {
 
+    "@nichol-soulful": {
+      "name": "Nichol - Soulful Stance",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Soulful Stance - Buffs (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "1"}}, {
+          "type": "CALL", "value": "@tapUnit", "args": {"index": "${index}"}}
+        ]
+      }]
+    },
+
     "@nichol-buffs": {
       "name": "Nichol - Buffs",
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Nichol - Buffs (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
@@ -38,9 +49,6 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Nichol - Energy (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {

@@ -1,0 +1,34 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Malphasie", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@malphasie-thousandwings": {
+      "name": "Malphasie - Thousand Wings",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Malphasie - Thousand Wings (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "0"}}
+        ]}
+      ]
+    },
+
+    "@malphasie-intenserancor": {
+      "name": "Malphasie - Intense Rancor",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Malphasie - Intense Rancor (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "9", "column": "1"}}
+        ]}
+      ]
+    }
+
+  }
+}

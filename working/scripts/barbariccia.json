@@ -18,11 +18,12 @@
           "type": "INFO", "value": "Barbariccia - Tornado (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
           "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "1"}, {
+          "type": "TAP", "value": "battle-skill-top-0"}, {
           "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "TAP", "value": "battle-skill-top-1"}, {
           "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-2"}, {
+          "type": "TAP", "value": "battle-skill-top-1"}, {
           "type": "WAIT", "value": "1500"}
         ]}
       ]
@@ -40,9 +41,29 @@
           "type": "INFO", "value": "Barbariccia - Sunder (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
           "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "5"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "4"}, {
           "type": "WAIT", "value": "500"}, {
           "type": "TAP", "value": "battle-skill-top-5"}, {
+          "type": "WAIT", "value": "1500"}
+        ]}
+      ]
+    },
+
+    "@barbariccia-tempesteye": {
+      "name": "Barbariccia - Tempest Eye Wall",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Barbariccia - Tempest Eye Wall (POS: ${index})"}, {
+          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "5"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "TAP", "value": "battle-skill-top-2"}, {
           "type": "WAIT", "value": "1500"}
         ]}
       ]
