@@ -13,7 +13,19 @@
         "actions": [{
           "type": "INFO", "value": "Malphasie - Thousand Wings (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "0"}}
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "0"}}
+        ]}
+      ]
+    },
+
+    "@malphasie-fiendishwinds": {
+      "name": "Malphasie - Thousand Wings",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Malphasie - Fiendish Winds (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "1"}}
         ]}
       ]
     },

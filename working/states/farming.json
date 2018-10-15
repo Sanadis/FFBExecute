@@ -16,7 +16,7 @@
     "description" : "What is your player level?  We need to to calculate your available energy reserve.",
     "tierId" : "farm",
     "display" : "Player Level",
-    "value" : "81",
+    "value" : "82",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -28,7 +28,7 @@
     "description" : "TMR farming will stop when this energy level is hit.",
     "tierId" : "farm",
     "display" : "Transition Energy",
-    "value" : "1",
+    "value" : "0",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -190,7 +190,7 @@
     "description" : "Is the RAID available on the home banner?  If so enable this.",
     "tierId" : "raid",
     "display" : "Home Raid",
-    "value" : "1",
+    "value" : "0",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -292,6 +292,294 @@
     }, {
       "name" : "Five (Right)",
       "value" : "4"
+    } ]
+  }, {
+    "name" : "arena-rule-black_magic",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Black Magic",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-white_magic",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow White magic",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-physical_combos",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Physical combos",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-magic_combos",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Magic combos",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-recovery",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Recovery",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-status",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Status ailments",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-boosts",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Parameter boosts",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-reductions",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Parameter reductions",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-light",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Light",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-dark",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Dark",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-fire",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Fire",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-water",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Water",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-ice",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Ice",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-earth",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Earth",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-lightning",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Lightning",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-wind",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Wind",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
     } ]
   } ]
 }

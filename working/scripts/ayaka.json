@@ -5,6 +5,7 @@
   ],
   "imports": [],
   "states": {
+
     "@ayaka-embolden": {
       "name": "Ayaka - Embolden",
       "includes": [],
@@ -15,14 +16,8 @@
         },
         "actions": [{
           "type": "INFO", "value": "Ayaka - Embolden (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "3"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-5"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "0"}}
         ]}
       ]
     },
@@ -37,14 +32,8 @@
         },
         "actions": [{
           "type": "INFO", "value": "Ayaka - Stop Detach (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "4"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "1000"}
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "1"}}
         ]}
       ]
     },
@@ -59,14 +48,8 @@
         },
         "actions": [{
           "type": "INFO", "value": "Ayaka - Curaja (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "2"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "1500"}
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "1"}}
         ]}
       ]
     }

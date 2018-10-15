@@ -5,7 +5,7 @@
   "ayaka",
   "veritas",
   "orlandeau",
-  "barbariccia",
+  "malphasie",
   "freyvia",
   "rinoa"
 ],
@@ -34,14 +34,14 @@
       "_arena-battle-fight",
       "_common-no_op"
     ],
-     "variables": {
+    "variables": {
        "index_votd": {"value": "0", "type": "INT"},
        "index_orlandeau": {"value": "1", "type": "INT"},
-       "index_rinoa": {"value": "2", "type": "INT"},
-       "index_ayaka": {"value": "3", "type": "INT"},
-       "index_barb": {"value": "4", "type": "INT"},
+       "index_malphasie": {"value": "2", "type": "INT"},
+       "index_malphasie2": {"value": "3", "type": "INT"},
+       "index_ayaka": {"value": "4", "type": "INT"},
 
-       "segment": {"value": "0", "type": "INT"},
+       "stage": {"value": "0", "type": "INT"},
        "arena_turn": {"value": "1", "type": "INT"},
        "elysium": {"value": "0", "type": "INT"},
        "purify": {"value": "0", "type": "INT"},
@@ -50,6 +50,22 @@
        "lbAttempts": {"value": "0", "type": "INT"}
     },
     "statements": [{
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "LESS", "value": "5", "var": "stage"}, {
+          "is": "GREATER", "value": "15", "var": "_loops" }
+        ]
+      },
+      "actions": [{
+        "type": "INFO", "value": "Unit stuck on stage ${stage}, incrementing counter"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
+        "type": "REPEAT", "value": ""}
+      ]
+
+    }, {
 
       "condition": {
         "is"    : "SCREEN", "value" : "game-battle",
@@ -61,14 +77,15 @@
         "type": "INFO", "value": "Force Attacking - Pause Detected (Turn: ${arena_turn})"}, {
         "type": "ADD", "value": "1", "var": "arena_turn"}, {
         "type": "CALL", "value": "@keepAlive"}, {
+        "type": "SET", "var": "stage", "value": "0"}, {
         "type": "BATCH", "value": "start"}, {
         "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
-        "type": "TAP", "value": "battle-unit_${index_barb}"}, {
-        "type": "TAP", "value": "battle-unit_${index_rinoa}"}, {
+        "type": "TAP", "value": "battle-unit_${index_malphasie}"}, {
+        "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
         "type": "TAP", "value": "battle-unit_${index_votd}"}, {
         "type": "TAP", "value": "battle-unit_${index_orlandeau}"}, {
         "type": "BATCH", "value": "end"}, {
-        "type": "WAIT", "value": "2000"}, {
+        "type": "WAIT", "value": "3000"}, {
         "type": "REPEAT", "value": ""}
       ]
 
@@ -91,6 +108,28 @@
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
+          "is": "EQUAL", "value": "0", "var":"stage"}, {
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_ayaka}"} }, {
+          "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "${index_ayaka}"} }
+        ]
+      },
+      "actions": [{
+        "type": "INFO", "value": "Ayaka Limit Burst"}, {
+        "type": "CALL", "value": "@readyUnitLb", "args": {"index": "${index_ayaka}"}}, {
+        "type": "WAIT", "value": "1000"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
+        "type": "SET", "var": "stage", "value": "1"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "REPEAT"}
+      ]
+
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "EQUAL", "value": "0", "var":"stage"}, {
           "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
           "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }, {
           "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_ayaka}"} }
@@ -98,15 +137,17 @@
         "andOr": [{
           "is": "SCREEN", "value": "battle-unit-${index_votd}_stop"}, {
           "is": "SCREEN", "value": "battle-unit-${index_orlandeau}_stop"}, {
-          "is": "SCREEN", "value": "battle-unit-${index_rinoa}_stop"}, {
-          "is": "SCREEN", "value": "battle-unit-${index_barb}_stop"}
+          "is": "SCREEN", "value": "battle-unit-${index_malphasie}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_malphasie2}_stop"}
         ]
       },
       "actions": [{
         "type": "INFO", "value": "Stop has been detected, trying to resolve"}, {
         "type": "CALL", "value": "@ayaka-stopdetach", "args": {"index": "${index_ayaka}"}}, {
-        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
-        "type": "WAIT", "value": "3000"}, {
+        "type": "WAIT", "value": "1000"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
+        "type": "SET", "var": "stage", "value": "1"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -114,6 +155,7 @@
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
+          "is": "EQUAL", "value": "0", "var":"stage"}, {
           "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
           "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }, {
           "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_ayaka}"} }
@@ -122,8 +164,11 @@
       "actions": [{
         "type": "INFO", "value": "Healing team"}, {
         "type": "CALL", "value": "@ayaka-curaja", "args": {"index": "${index_ayaka}"}}, {
-        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
-        "type": "WAIT", "value": "3000"}, {
+        "type": "WAIT", "value": "500"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
+        "type": "WAIT", "value": "500"}, {
+        "type": "SET", "var": "stage", "value": "1"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -131,6 +176,7 @@
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
+          "is": "EQUAL", "value": "1", "var":"stage"}, {
           "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_votd}"} }, {
           "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_votd}"} }, {
           "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_votd}"} }
@@ -138,6 +184,8 @@
       },
       "actions": [{
         "type": "CALL", "value": "@veritas-punishment", "args": {"index": "${index_votd}"}}, {
+        "type": "SET", "var": "stage", "value": "2"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -145,6 +193,7 @@
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
+          "is": "EQUAL", "value": "2", "var":"stage"}, {
           "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_orlandeau}"} }, {
           "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_orlandeau}"} }, {
           "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_orlandeau}"} }
@@ -152,6 +201,8 @@
       },
       "actions": [{
         "type": "CALL", "value": "@orlandeau-dr", "args": {"index": "${index_orlandeau}"}}, {
+        "type": "SET", "var": "stage", "value": "3"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -159,30 +210,17 @@
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_barb}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_barb}"} }, {
-          "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_barb}"} }
+          "is": "EQUAL", "value": "3", "var":"stage"}, {
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie}"} }, {
+          "var": "arena_turn", "not": "GREATER",  "value": "2"}
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@barbariccia-tornado", "args": {"index": "${index_barb}"}}, {
-//        "type": "CALL", "value": "@barbariccia-sunder", "args": {"index": "${index_barb}"}}, {
-        "type": "REPEAT"}
-      ]
-    }, {
-
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }, {
-          "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_rinoa}"} }, {
-          "var": "arena_turn", "not": "EQUAL",  "value": "2"}, {
-          "var": "arena_turn", "not": "EQUAL",  "value": "6"}
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@rinoa-tornado-triple", "args": {"index": "${index_rinoa}"}}, {
+        "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie}"}}, {
+        "type": "SET", "var": "stage", "value": "4"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
 
@@ -191,37 +229,90 @@
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_rinoa}"} }, {
-          "var": "arena_turn", "is": "EQUAL",  "value": "2", "or": [{
-            "var": "arena_turn", "is": "EQUAL",  "value": "6"}]}
+          "is": "EQUAL", "value": "3", "var":"stage"}, {
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie}"} }, {
+          "var": "arena_turn", "is": "GREATER",  "value": "2"}
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@rinoa-angelwing", "args": {"index": "${index_rinoa}"}}, {
+        "type": "CALL", "value": "@malphasie-thousandwings", "args": {"index": "${index_malphasie}"}}, {
+        "type": "SET", "var": "stage", "value": "4"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
 
     }, {
 
       "condition": {
-        "is": "SCREEN", "value": "game-battle-repeat"
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "EQUAL", "value": "4", "var":"stage"}, {
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie2}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie2}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie2}"} }, {
+          "var": "arena_turn", "not": "GREATER",  "value": "2"}
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie2}"}}, {
+        "type": "SET", "var": "stage", "value": "5"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "REPEAT"}
+      ]
+
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "EQUAL", "value": "4", "var":"stage"}, {
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie2}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie2}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie2}"} }, {
+          "var": "arena_turn", "is": "GREATER",  "value": "2"}
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@malphasie-thousandwings", "args": {"index": "${index_malphasie2}"}}, {
+        "type": "SET", "var": "stage", "value": "5"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "REPEAT"}
+      ]
+
+    }, {
+
+      "condition": {
+        "is": "EQUAL", "value": "5", "var":"stage"
       },
       "actions": [{
         "type": "INFO", "value": "Attacking (Turn: ${arena_turn})"}, {
-        "type": "CALL", "value": "@keepAlive"}, {
         "type": "BATCH", "value": "start"}, {
         "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
-        "type": "TAP", "value": "battle-unit_${index_barb}"}, {
-        "type": "TAP", "value": "battle-unit_${index_rinoa}"}, {
+        "type": "TAP", "value": "battle-unit_${index_malphasie}"}, {
+        "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
         "type": "TAP", "value": "battle-unit_${index_votd}"}, {
         "type": "TAP", "value": "battle-unit_${index_orlandeau}"}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "5000"}, {
+        "type": "SET", "value": "0", "var": "stage"}, {
         "type": "ADD", "value": "1", "var": "arena_turn"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
+
+    }, {
+
+      "condition": {
+        "is": "GREATER", "value": "5", "var": "stage"
+      },
+      "actions": [{
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "SET", "value": "0", "var": "stage"}, {
+        "type": "REPEAT", "value": ""}
+      ]
+
     }]
   },
 

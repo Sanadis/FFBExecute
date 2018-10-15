@@ -16,10 +16,8 @@
         },
         "actions": [{
           "type": "INFO", "value": "Veritas of the Dark - Impact (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-4"}, {
-          "type": "WAIT", "value": "2000"}
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "1"}}
         ]
       }]
     },
@@ -33,12 +31,8 @@
           "is": "BOOLEAN", "value": "true"
         }, "actions": [{
           "type": "INFO", "value": "Veritas of the Dark - Dark Punishment (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "1"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "2000"}
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "0"}}
         ]
       }]
     }
