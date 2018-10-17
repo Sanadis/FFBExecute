@@ -25,7 +25,7 @@
     "description" : "Enable / Disable ARENA",
     "tierId" : "enable",
     "display" : "Arena",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
