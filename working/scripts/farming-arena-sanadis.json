@@ -75,17 +75,18 @@
       },
       "actions": [{
         "type": "INFO", "value": "Force Attacking - Pause Detected (Turn: ${arena_turn})"}, {
-        "type": "ADD", "value": "1", "var": "arena_turn"}, {
-        "type": "CALL", "value": "@keepAlive"}, {
-        "type": "SET", "var": "stage", "value": "0"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
+        "type": "WAIT", "value": "1000"}, {
         "type": "BATCH", "value": "start"}, {
-        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
         "type": "TAP", "value": "battle-unit_${index_votd}"}, {
         "type": "TAP", "value": "battle-unit_${index_orlandeau}"}, {
         "type": "BATCH", "value": "end"}, {
-        "type": "WAIT", "value": "3000"}, {
+        "type": "WAIT", "value": "5000"}, {
+        "type": "SET", "var": "stage", "value": "0"}, {
+        "type": "ADD", "value": "1", "var": "arena_turn"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT", "value": ""}
       ]
 
@@ -105,6 +106,9 @@
 
     }, {
 
+      // --------------------------------------------------------------- //
+      // ---------------------------- Ayaka ---------------------------- //
+      // --------------------------------------------------------------- //
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
@@ -119,7 +123,7 @@
         "type": "CALL", "value": "@readyUnitLb", "args": {"index": "${index_ayaka}"}}, {
         "type": "WAIT", "value": "1000"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
-        "type": "SET", "var": "stage", "value": "1"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
@@ -146,7 +150,7 @@
         "type": "CALL", "value": "@ayaka-stopdetach", "args": {"index": "${index_ayaka}"}}, {
         "type": "WAIT", "value": "1000"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
-        "type": "SET", "var": "stage", "value": "1"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
@@ -164,15 +168,17 @@
       "actions": [{
         "type": "INFO", "value": "Healing team"}, {
         "type": "CALL", "value": "@ayaka-curaja", "args": {"index": "${index_ayaka}"}}, {
-        "type": "WAIT", "value": "500"}, {
+        "type": "WAIT", "value": "1000"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
-        "type": "WAIT", "value": "500"}, {
-        "type": "SET", "var": "stage", "value": "1"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
 
+      // --------------------------------------------------------------- //
+      // ---------------------------- VOTD ----------------------------- //
+      // --------------------------------------------------------------- //
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
@@ -184,11 +190,34 @@
       },
       "actions": [{
         "type": "CALL", "value": "@veritas-punishment", "args": {"index": "${index_votd}"}}, {
-        "type": "SET", "var": "stage", "value": "2"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
+
+      // --------------------------------------------------------------- //
+      // -------------------------- Orlandeau -------------------------- //
+      // --------------------------------------------------------------- //
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "EQUAL", "value": "2", "var":"stage"}, {
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_orlandeau}"} }, {
+//          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_orlandeau}"} }, {
+//          "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "${index_orlandeau}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "INFO", "value": "Orlandeau Limit Burst"}, {
+//        "type": "CALL", "value": "@readyUnitLb", "args": {"index": "${index_orlandeau}"}}, {
+//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_orlandeau}"}}, {
+//        "type": "ADD", "value": "1", "var": "stage"}, {
+//        "type": "CALL", "value": "@keepAlive"}, {
+//        "type": "REPEAT"}
+//      ]
+//
+//    }, {
 
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
@@ -201,12 +230,15 @@
       },
       "actions": [{
         "type": "CALL", "value": "@orlandeau-dr", "args": {"index": "${index_orlandeau}"}}, {
-        "type": "SET", "var": "stage", "value": "3"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
 
+      // --------------------------------------------------------------- //
+      // ------------------------- Malphasie 1 ------------------------- //
+      // --------------------------------------------------------------- //
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
@@ -219,7 +251,7 @@
       },
       "actions": [{
         "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie}"}}, {
-        "type": "SET", "var": "stage", "value": "4"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
@@ -238,13 +270,16 @@
       },
       "actions": [{
         "type": "CALL", "value": "@malphasie-thousandwings", "args": {"index": "${index_malphasie}"}}, {
-        "type": "SET", "var": "stage", "value": "4"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
 
     }, {
 
+      // --------------------------------------------------------------- //
+      // ------------------------- Malphasie 2 ------------------------- //
+      // --------------------------------------------------------------- //
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
@@ -257,7 +292,7 @@
       },
       "actions": [{
         "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie2}"}}, {
-        "type": "SET", "var": "stage", "value": "5"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
@@ -276,20 +311,24 @@
       },
       "actions": [{
         "type": "CALL", "value": "@malphasie-thousandwings", "args": {"index": "${index_malphasie2}"}}, {
-        "type": "SET", "var": "stage", "value": "5"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
 
     }, {
 
+      // --------------------------------------------------------------- //
+      // --------------------------- Attack ---------------------------- //
+      // --------------------------------------------------------------- //
       "condition": {
         "is": "EQUAL", "value": "5", "var":"stage"
       },
       "actions": [{
         "type": "INFO", "value": "Attacking (Turn: ${arena_turn})"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
+        "type": "WAIT", "value": "1000"}, {
         "type": "BATCH", "value": "start"}, {
-        "type": "TAP", "value": "battle-unit_${index_ayaka}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
         "type": "TAP", "value": "battle-unit_${index_votd}"}, {

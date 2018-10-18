@@ -17,7 +17,9 @@
         "actions": [{
           "type": "INFO", "value": "Ayaka - Embolden (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "0"}}
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "0"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}
         ]}
       ]
     },
@@ -33,7 +35,9 @@
         "actions": [{
           "type": "INFO", "value": "Ayaka - Stop Detach (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "1"}}
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}
         ]}
       ]
     },
@@ -49,7 +53,9 @@
         "actions": [{
           "type": "INFO", "value": "Ayaka - Curaja (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "1"}}
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}
         ]}
       ]
     }
