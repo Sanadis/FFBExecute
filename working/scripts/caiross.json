@@ -48,8 +48,8 @@
 
   "states": {
 
-    "farm": {
-      "name": "Farm (Override)",
+    "farm_caiross": {
+      "name": "Farm - Home to Caiross",
       "includes": [
         "_common-no_op"
       ],
@@ -73,14 +73,13 @@
       "includes": [
         "_common-no_op"
       ],
-      "variables": {},
       "statements": [{
         "condition": {
-          "is": "SCREEN", "value": "menu_battle"
+          "is": "SCREEN", "value": "menu_world"
         },
         "actions": [{
           "type": "INFO", "value": "Entering Caiross Dungeon"}, {
-          "type": "TAP", "value": "menu_battle-caiross"}, {
+          "type": "TAP", "value": "menu_world-caiross"}, {
           "type": "RETURN"}
         ]
       }, {
@@ -100,7 +99,6 @@
         "team-select",
         "_common-no_op"
       ],
-      "variables": {},
       "statements": [{
         "condition": {
           "is": "SCREEN", "value": "menu_caiross"
@@ -119,23 +117,141 @@
 
     "team-select": {
       "name": "Team Selection",
-      "includes": [
-        "_common-no_op"
-      ],
-      "variables": {},
       "statements": [{
         "condition": {
           "is": "SCREEN", "value": "menu_unit-select"
         },
         "actions": [{
-          "type": "CALL", "value": "@keepAlive" }, {
           "type": "ADD", "var": "runs", "value": "1"}, {
           "type": "INFO", "value": "Starting run ${runs}"}, {
           "type": "TAP", "value": "menu_unit-select_start"}, {
           "type": "WAIT", "value": "5000"}, {
+          "type": "CALL", "value": "@keepAlive" }, {
+          "type": "REPEAT"}
+        ]
+      }, {
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle"
+        },
+        "actions": [{
+          "type": "CALL", "value": "@keepAlive" }, {
+          "type": "ADD", "var": "runs", "value": "1"}, {
+          "type": "INFO", "value": "Starting run ${runs}"}, {
+          "type": "MOVE", "value": "caiross-battle"}
+        ]
+      }]
+    },
+
+    "caiross-battle": {
+      "name": "Caiross Battle - Auto",
+      "includes": [
+        "caiross-battle_results",
+        "_common-no_op"
+      ],
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle",
+          "and": [{
+            "is": "SCREEN", "value": "menu_battle-manual"
+          }]
+        },
+        "actions": [{
+          "type": "TAP", "value": "menu_battle-auto"}, {
+          "type": "WAIT", "value": "5000"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle"
+        },
+        "actions": [{
+          "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive" }, {
           "type": "REPEAT"}
         ]
       }]
+    },
+
+    "caiross-battle_results": {
+      "name": "Caiross Battle - Results",
+      "includes": [
+        "_menu-battle_results-failed",
+        "_menu-battle_results-victory",
+        "_common-no_op"
+      ],
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle",
+          "and": [{
+            "is": "SCREEN", "value": "menu_battle-manual"
+          }]
+        },
+        "actions": [{
+          "type": "TAP", "value": "menu_battle-auto"}, {
+          "type": "WAIT", "value": "5000"}, {
+          "type": "REPEAT"}
+        ]
+      }]
+    },
+
+    "_menu-battle_results-victory": {
+      "name": "Caiross Battle - Victory",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle-results"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Run success"}, {
+          "type": "TAP", "value": "menu_battle-results_continue"}, {
+          "type": "WAIT", "value": "3000"}, {
+          "type": "TAP", "value": "menu_battle-results_chest"}, {
+          "type": "WAIT", "value": "3000"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle-results_failed"
+        },
+        "actions": [{
+          "type": "TAP", "value": "menu_battle-results_failed-no"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "REPEAT"}
+        ]
+      }]
+    },
+
+    "_menu-battle_results-failed": {
+      "name": "Caiross Battle - Failed",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle-results_failed"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Run failed"}, {
+          "type": "TAP", "value": "menu_battle-results_failed-no"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle-results"
+        },
+        "actions": [{
+          "type": "TAP", "value": "menu_battle-results_continue"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "REPEAT"}
+        ]
+      }, {
+        "condition": {
+          "is": "SCREEN", "value": "menu_battle-results_failed-options"
+        },
+        "actions": [{
+          "type": "TAP", "value": "menu_battle-results_failed-prepare"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "MOVE", "value": "team-select"}
+        ]
+      }]
     }
+
   }
 }

@@ -141,45 +141,282 @@
     } ],
     "enabled" : true
   }, {
+    "name" : "login_update",
+    "screenId" : "login_update",
+    "points" : [ {
+      "x" : 277,
+      "y" : 151,
+      "r" : 141,
+      "g" : 110,
+      "b" : 63
+    }, {
+      "x" : 277,
+      "y" : 563,
+      "r" : 157,
+      "g" : 125,
+      "b" : 67
+    }, {
+      "x" : 995,
+      "y" : 563,
+      "r" : 171,
+      "g" : 139,
+      "b" : 82
+    }, {
+      "x" : 1000,
+      "y" : 151,
+      "r" : 140,
+      "g" : 111,
+      "b" : 63
+    }, {
+      "x" : 559,
+      "y" : 445,
+      "r" : 234,
+      "g" : 212,
+      "b" : 153
+    }, {
+      "x" : 561,
+      "y" : 505,
+      "r" : 183,
+      "g" : 130,
+      "b" : 42
+    }, {
+      "x" : 717,
+      "y" : 505,
+      "r" : 176,
+      "g" : 123,
+      "b" : 32
+    }, {
+      "x" : 716,
+      "y" : 447,
+      "r" : 203,
+      "g" : 161,
+      "b" : 72
+    }, {
+      "x" : 642,
+      "y" : 445,
+      "r" : 226,
+      "g" : 191,
+      "b" : 108
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "login_update-download",
+    "screenId" : "login_update-download",
+    "points" : [ {
+      "x" : 276,
+      "y" : 133,
+      "r" : 177,
+      "g" : 145,
+      "b" : 84
+    }, {
+      "x" : 277,
+      "y" : 581,
+      "r" : 138,
+      "g" : 108,
+      "b" : 63
+    }, {
+      "x" : 996,
+      "y" : 581,
+      "r" : 139,
+      "g" : 109,
+      "b" : 63
+    }, {
+      "x" : 1000,
+      "y" : 134,
+      "r" : 127,
+      "g" : 99,
+      "b" : 62
+    }, {
+      "x" : 559,
+      "y" : 462,
+      "r" : 234,
+      "g" : 213,
+      "b" : 154
+    }, {
+      "x" : 560,
+      "y" : 525,
+      "r" : 178,
+      "g" : 128,
+      "b" : 41
+    }, {
+      "x" : 717,
+      "y" : 523,
+      "r" : 175,
+      "g" : 123,
+      "b" : 32
+    }, {
+      "x" : 718,
+      "y" : 462,
+      "r" : 207,
+      "g" : 166,
+      "b" : 78
+    } ],
+    "enabled" : true
+  }, {
     "name" : "menu_battle",
     "screenId" : "menu_battle",
     "points" : [ {
-      "x" : 1175,
-      "y" : 636,
-      "r" : 81,
-      "g" : 52,
-      "b" : 13
+      "x" : 15,
+      "y" : 643,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
     }, {
-      "x" : 1175,
-      "y" : 705,
-      "r" : 70,
-      "g" : 49,
-      "b" : 11
+      "x" : 16,
+      "y" : 702,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
     }, {
-      "x" : 1248,
-      "y" : 704,
-      "r" : 64,
-      "g" : 40,
-      "b" : 6
+      "x" : 77,
+      "y" : 701,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
     }, {
-      "x" : 1248,
-      "y" : 636,
-      "r" : 64,
-      "g" : 39,
-      "b" : 5
+      "x" : 78,
+      "y" : 642,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
     }, {
-      "x" : 1211,
-      "y" : 635,
-      "r" : 195,
-      "g" : 149,
-      "b" : 61
+      "x" : 111,
+      "y" : 642,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 110,
+      "y" : 701,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 171,
+      "y" : 702,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 172,
+      "y" : 643,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 204,
+      "y" : 643,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 205,
+      "y" : 702,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 267,
+      "y" : 701,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 267,
+      "y" : 643,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-manual",
+    "screenId" : "menu_battle-manual",
+    "points" : [ {
+      "x" : 246,
+      "y" : 672,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 224,
+      "y" : 657,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 224,
+      "y" : 687,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 235,
+      "y" : 680,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 235,
+      "y" : 664,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 240,
+      "y" : 672,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
+    }, {
+      "x" : 229,
+      "y" : 672,
+      "r" : 255,
+      "g" : 255,
+      "b" : 255
     } ],
     "enabled" : true
   }, {
     "name" : "menu_battle-results",
     "screenId" : "menu_battle-results",
-    "points" : [ ],
-    "enabled" : false
+    "points" : [ {
+      "x" : 258,
+      "y" : 320,
+      "r" : 41,
+      "g" : 28,
+      "b" : 9
+    }, {
+      "x" : 258,
+      "y" : 403,
+      "r" : 41,
+      "g" : 28,
+      "b" : 9
+    }, {
+      "x" : 1072,
+      "y" : 403,
+      "r" : 37,
+      "g" : 25,
+      "b" : 6
+    }, {
+      "x" : 1072,
+      "y" : 319,
+      "r" : 38,
+      "g" : 25,
+      "b" : 6
+    }, {
+      "x" : 666,
+      "y" : 319,
+      "r" : 41,
+      "g" : 28,
+      "b" : 9
+    }, {
+      "x" : 666,
+      "y" : 404,
+      "r" : 40,
+      "g" : 28,
+      "b" : 8
+    } ],
+    "enabled" : true
   }, {
     "name" : "menu_battle-results_actions",
     "screenId" : "menu_battle-results_actions",
@@ -231,6 +468,153 @@
       "r" : 185,
       "g" : 153,
       "b" : 97
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_failed",
+    "screenId" : "menu_battle-results_failed",
+    "points" : [ {
+      "x" : 380,
+      "y" : 462,
+      "r" : 218,
+      "g" : 22,
+      "b" : 70
+    }, {
+      "x" : 376,
+      "y" : 465,
+      "r" : 216,
+      "g" : 21,
+      "b" : 70
+    }, {
+      "x" : 374,
+      "y" : 474,
+      "r" : 245,
+      "g" : 66,
+      "b" : 115
+    }, {
+      "x" : 377,
+      "y" : 476,
+      "r" : 250,
+      "g" : 92,
+      "b" : 137
+    }, {
+      "x" : 385,
+      "y" : 462,
+      "r" : 255,
+      "g" : 62,
+      "b" : 126
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_failed-options",
+    "screenId" : "menu_battle-results_failed-options",
+    "points" : [ {
+      "x" : 746,
+      "y" : 578,
+      "r" : 255,
+      "g" : 253,
+      "b" : 223
+    }, {
+      "x" : 768,
+      "y" : 578,
+      "r" : 255,
+      "g" : 251,
+      "b" : 204
+    }, {
+      "x" : 757,
+      "y" : 567,
+      "r" : 142,
+      "g" : 52,
+      "b" : 14
+    }, {
+      "x" : 757,
+      "y" : 592,
+      "r" : 142,
+      "g" : 52,
+      "b" : 14
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_rainbowmon",
+    "screenId" : "menu_battle-results_rainbowmon",
+    "points" : [ {
+      "x" : 391,
+      "y" : 158,
+      "r" : 19,
+      "g" : 15,
+      "b" : 5
+    }, {
+      "x" : 391,
+      "y" : 646,
+      "r" : 22,
+      "g" : 16,
+      "b" : 5
+    }, {
+      "x" : 886,
+      "y" : 645,
+      "r" : 24,
+      "g" : 18,
+      "b" : 6
+    }, {
+      "x" : 885,
+      "y" : 159,
+      "r" : 23,
+      "g" : 17,
+      "b" : 6
+    }, {
+      "x" : 872,
+      "y" : 173,
+      "r" : 183,
+      "g" : 142,
+      "b" : 66
+    }, {
+      "x" : 854,
+      "y" : 173,
+      "r" : 181,
+      "g" : 139,
+      "b" : 64
+    }, {
+      "x" : 854,
+      "y" : 193,
+      "r" : 157,
+      "g" : 106,
+      "b" : 35
+    }, {
+      "x" : 871,
+      "y" : 193,
+      "r" : 158,
+      "g" : 106,
+      "b" : 35
+    }, {
+      "x" : 863,
+      "y" : 183,
+      "r" : 171,
+      "g" : 125,
+      "b" : 50
+    }, {
+      "x" : 559,
+      "y" : 559,
+      "r" : 217,
+      "g" : 183,
+      "b" : 114
+    }, {
+      "x" : 560,
+      "y" : 623,
+      "r" : 181,
+      "g" : 123,
+      "b" : 56
+    }, {
+      "x" : 715,
+      "y" : 620,
+      "r" : 180,
+      "g" : 124,
+      "b" : 57
+    }, {
+      "x" : 716,
+      "y" : 559,
+      "r" : 212,
+      "g" : 171,
+      "b" : 100
     } ],
     "enabled" : true
   }, {
@@ -669,6 +1053,41 @@
     } ],
     "enabled" : true
   }, {
+    "name" : "menu_world",
+    "screenId" : "menu_world",
+    "points" : [ {
+      "x" : 1175,
+      "y" : 636,
+      "r" : 81,
+      "g" : 52,
+      "b" : 13
+    }, {
+      "x" : 1175,
+      "y" : 705,
+      "r" : 70,
+      "g" : 49,
+      "b" : 11
+    }, {
+      "x" : 1248,
+      "y" : 704,
+      "r" : 64,
+      "g" : 40,
+      "b" : 6
+    }, {
+      "x" : 1248,
+      "y" : 636,
+      "r" : 64,
+      "g" : 39,
+      "b" : 5
+    }, {
+      "x" : 1211,
+      "y" : 635,
+      "r" : 195,
+      "g" : 149,
+      "b" : 61
+    } ],
+    "enabled" : true
+  }, {
     "name" : "os-home",
     "screenId" : "os-home",
     "points" : [ {
@@ -701,6 +1120,59 @@
       "r" : 32,
       "g" : 34,
       "b" : 57
+    } ],
+    "enabled" : true
+  }, {
+    "name" : "popup_arena-rewards",
+    "screenId" : "popup_arena-rewards",
+    "points" : [ {
+      "x" : 307,
+      "y" : 99,
+      "r" : 165,
+      "g" : 133,
+      "b" : 76
+    }, {
+      "x" : 312,
+      "y" : 624,
+      "r" : 148,
+      "g" : 117,
+      "b" : 70
+    }, {
+      "x" : 969,
+      "y" : 623,
+      "r" : 159,
+      "g" : 127,
+      "b" : 74
+    }, {
+      "x" : 960,
+      "y" : 95,
+      "r" : 248,
+      "g" : 240,
+      "b" : 224
+    }, {
+      "x" : 953,
+      "y" : 85,
+      "r" : 247,
+      "g" : 239,
+      "b" : 223
+    }, {
+      "x" : 969,
+      "y" : 84,
+      "r" : 246,
+      "g" : 238,
+      "b" : 222
+    }, {
+      "x" : 969,
+      "y" : 104,
+      "r" : 247,
+      "g" : 239,
+      "b" : 223
+    }, {
+      "x" : 952,
+      "y" : 104,
+      "r" : 245,
+      "g" : 236,
+      "b" : 220
     } ],
     "enabled" : true
   }, {
@@ -900,10 +1372,10 @@
   "components" : [ {
     "name" : "login_ads-dont",
     "componentId" : "login_ads-dont",
-    "x" : 150,
-    "y" : 641,
-    "w" : 32,
-    "h" : 34,
+    "x" : 218,
+    "y" : 348,
+    "w" : 381,
+    "h" : 83,
     "enabled" : true
   }, {
     "name" : "login_ads-dont",
@@ -930,6 +1402,22 @@
     "h" : 31,
     "enabled" : true
   }, {
+    "name" : "login_update-download-ok",
+    "componentId" : "login_update-download-ok",
+    "x" : 557,
+    "y" : 460,
+    "w" : 165,
+    "h" : 66,
+    "enabled" : true
+  }, {
+    "name" : "login_update-ok",
+    "componentId" : "login_update-ok",
+    "x" : 556,
+    "y" : 442,
+    "w" : 166,
+    "h" : 67,
+    "enabled" : true
+  }, {
     "name" : "Menu - Energy Bar",
     "componentId" : "menu-energy_bar",
     "x" : 0,
@@ -938,12 +1426,20 @@
     "h" : 1,
     "enabled" : false
   }, {
-    "name" : "menu_battle-caiross",
-    "componentId" : "menu_battle-caiross",
-    "x" : 539,
-    "y" : 569,
-    "w" : 272,
-    "h" : 129,
+    "name" : "menu_battle-auto",
+    "componentId" : "menu_battle-auto",
+    "x" : 208,
+    "y" : 646,
+    "w" : 55,
+    "h" : 52,
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results-ok",
+    "componentId" : "menu_battle-results-ok",
+    "x" : 558,
+    "y" : 558,
+    "w" : 162,
+    "h" : 67,
     "enabled" : true
   }, {
     "name" : "menu_battle-results_actions-no",
@@ -961,6 +1457,30 @@
     "w" : 379,
     "h" : 82,
     "enabled" : true
+  }, {
+    "name" : "menu_battle-results_continue",
+    "componentId" : "menu_battle-results_continue",
+    "x" : 129,
+    "y" : 80,
+    "w" : 1060,
+    "h" : 565,
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_failed-no",
+    "componentId" : "menu_battle-results_failed-no",
+    "x" : 695,
+    "y" : 427,
+    "w" : 260,
+    "h" : 84,
+    "enabled" : true
+  }, {
+    "name" : "menu_battle-results_failed-prepare",
+    "componentId" : "menu_battle-results_failed-prepare",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
   }, {
     "name" : "menu_battle-results_get",
     "componentId" : "menu_battle-results_get",
@@ -1042,12 +1562,28 @@
     "h" : 102,
     "enabled" : true
   }, {
+    "name" : "menu_world-caiross",
+    "componentId" : "menu_world-caiross",
+    "x" : 539,
+    "y" : 569,
+    "w" : 272,
+    "h" : 129,
+    "enabled" : true
+  }, {
     "name" : "os-app-icon",
     "componentId" : "os-app-icon",
     "x" : 626,
     "y" : 142,
     "w" : 15,
     "h" : 15,
+    "enabled" : true
+  }, {
+    "name" : "popup_arena-rewards-ok",
+    "componentId" : "popup_arena-rewards-ok",
+    "x" : 554,
+    "y" : 529,
+    "w" : 168,
+    "h" : 69,
     "enabled" : true
   }, {
     "name" : "popup_daily-close",
