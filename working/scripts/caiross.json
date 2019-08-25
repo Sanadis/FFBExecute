@@ -134,9 +134,6 @@
           "is": "SCREEN", "value": "menu_battle"
         },
         "actions": [{
-          "type": "CALL", "value": "@keepAlive" }, {
-          "type": "ADD", "var": "runs", "value": "1"}, {
-          "type": "INFO", "value": "Starting run ${runs}"}, {
           "type": "MOVE", "value": "caiross-battle"}
         ]
       }]
@@ -172,26 +169,13 @@
       }]
     },
 
-    "caiross-battle_results": {
+    "caiross-battle_results": {3
       "name": "Caiross Battle - Results",
       "includes": [
-        "_menu-battle_results-failed",
         "_menu-battle_results-victory",
+        "_menu-battle_results-failed",
         "_common-no_op"
-      ],
-      "statements": [{
-        "condition": {
-          "is": "SCREEN", "value": "menu_battle",
-          "and": [{
-            "is": "SCREEN", "value": "menu_battle-manual"
-          }]
-        },
-        "actions": [{
-          "type": "TAP", "value": "menu_battle-auto"}, {
-          "type": "WAIT", "value": "5000"}, {
-          "type": "REPEAT"}
-        ]
-      }]
+      ]
     },
 
     "_menu-battle_results-victory": {
@@ -201,20 +185,11 @@
           "is": "SCREEN", "value": "menu_battle-results"
         },
         "actions": [{
-          "type": "INFO", "value": "Run success"}, {
+          "type": "INFO", "value": "Run ${runs} success"}, {
           "type": "TAP", "value": "menu_battle-results_continue"}, {
           "type": "WAIT", "value": "3000"}, {
           "type": "TAP", "value": "menu_battle-results_chest"}, {
           "type": "WAIT", "value": "3000"}, {
-          "type": "REPEAT"}
-        ]
-      }, {
-        "condition": {
-          "is": "SCREEN", "value": "menu_battle-results_failed"
-        },
-        "actions": [{
-          "type": "TAP", "value": "menu_battle-results_failed-no"}, {
-          "type": "WAIT", "value": "2000"}, {
           "type": "REPEAT"}
         ]
       }]
@@ -227,7 +202,7 @@
           "is": "SCREEN", "value": "menu_battle-results_failed"
         },
         "actions": [{
-          "type": "INFO", "value": "Run failed"}, {
+          "type": "INFO", "value": "Run ${runs} failed"}, {
           "type": "TAP", "value": "menu_battle-results_failed-no"}, {
           "type": "WAIT", "value": "2000"}, {
           "type": "REPEAT"}
@@ -237,6 +212,7 @@
           "is": "SCREEN", "value": "menu_battle-results"
         },
         "actions": [{
+          "type": "INFO", "value": "Run ${runs} failed results"}, {
           "type": "TAP", "value": "menu_battle-results_continue"}, {
           "type": "WAIT", "value": "2000"}, {
           "type": "REPEAT"}
@@ -246,6 +222,7 @@
           "is": "SCREEN", "value": "menu_battle-results_failed-options"
         },
         "actions": [{
+          "type": "INFO", "value": "Run ${runs} failed options"}, {
           "type": "TAP", "value": "menu_battle-results_failed-prepare"}, {
           "type": "WAIT", "value": "2000"}, {
           "type": "MOVE", "value": "team-select"}
