@@ -104,7 +104,7 @@
           "is": "SCREEN", "value": "menu_caiross"
         },
         "actions": [{
-          "type": "INFO", "value": "Selecting dungeon"}, {
+          "type": "INFO", "value": "Selecting dungeon level ${caiross-level}"}, {
           "type": "WAIT", "value": "500"}, {
           "type": "SWIPE_UP", "value": "menu_caiross_level-select"}, {
           "type": "WAIT", "value": "1500"}, {
@@ -188,7 +188,8 @@
           "type": "INFO", "value": "Run ${runs} success"}, {
           "type": "TAP", "value": "menu_battle-results_continue"}, {
           "type": "WAIT", "value": "3000"}, {
-          "type": "TAP", "value": "menu_battle-results_chest"}, {
+          "type": "TAP", "value": "menu_battle-results_continue"}, {
+//          "type": "TAP", "value": "menu_battle-results_chest"}, {
           "type": "WAIT", "value": "3000"}, {
           "type": "REPEAT"}
         ]
