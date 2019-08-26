@@ -169,7 +169,7 @@
       }]
     },
 
-    "caiross-battle_results": {3
+    "caiross-battle_results": {
       "name": "Caiross Battle - Results",
       "includes": [
         "_menu-battle_results-victory",
